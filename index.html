@@ -69,9 +69,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-project','listing-lang','listing-website','listing-format','listing-engines','listing-language','listing-title','listing-description','listing-date','listing-image','listing-toc','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
+      valueNames: ['listing-project','listing-lang','listing-website','listing-format','listing-engines','listing-language','listing-title','listing-description','listing-domaine','listing-titrecourt','listing-date','listing-image','listing-toc','listing-path','listing-outputHref','listing-date-modified','listing-author','listing-filename','listing-file-modified','listing-reading-time','listing-word-count',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-date-modified-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] },{ data: ['listing-word-count-sort'] }],
       
-      searchColumns: ["listing-project","listing-lang","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-description","listing-date","listing-image","listing-toc","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
+      searchColumns: ["listing-project","listing-lang","listing-website","listing-format","listing-engines","listing-language","listing-title","listing-description","listing-domaine","listing-titrecourt","listing-date","listing-image","listing-toc","listing-path","listing-outputHref","listing-date-modified","listing-author","listing-filename","listing-file-modified","listing-reading-time","listing-word-count"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -328,24 +328,24 @@ window.Quarto = {
 <!-- Modèle : petites vignettes portrait des animations récentes (page d'accueil) -->
 <div class="vignettes">
 
-<a href="./animations/formulesaddition.html" class="vignette" data-index="0" data-listing-date-sort="1792792800000" data-listing-file-modified-sort="1792716884072" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
+<a href="./animations/formulesaddition.html" class="vignette" data-index="0" data-listing-date-sort="1792792800000" data-listing-file-modified-sort="1792798709690" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="129">
 <div class="image"><img src="./extraits/formulesaddition.jpg" alt=""></div>
-<div class="titre">Formules d'addition</div>
+<div class="titre">Formules d'addition</div>   <!-- titre court s'il existe, sinon le titre complet -->
 </a>
 
-<a href="./animations/eulerspirale.html" class="vignette" data-index="1" data-listing-date-sort="1792706400000" data-listing-file-modified-sort="1792713293294" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
+<a href="./animations/eulerspirale.html" class="vignette" data-index="1" data-listing-date-sort="1792706400000" data-listing-file-modified-sort="1792798733687" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="71">
 <div class="image"><img src="./extraits/extraitEulerSpirale.jpg" alt=""></div>
-<div class="titre">Formule d'Euler en 3D</div>
+<div class="titre">Formule d'Euler en 3D</div>   <!-- titre court s'il existe, sinon le titre complet -->
 </a>
 
-<a href="./animations/rotation3d.html" class="vignette" data-index="2" data-listing-date-sort="1792620000000" data-listing-file-modified-sort="1792713293300" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
+<a href="./animations/rotation3d.html" class="vignette" data-index="2" data-listing-date-sort="1792620000000" data-listing-file-modified-sort="1792798709675" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="73">
 <div class="image"><img src="./extraits/extraitRotation3D.jpg" alt=""></div>
-<div class="titre">Matrices de rotation</div>
+<div class="titre">Matrices de rotation</div>   <!-- titre court s'il existe, sinon le titre complet -->
 </a>
 
-<a href="./animations/fourier3d.html" class="vignette" data-index="3" data-listing-date-sort="1792533600000" data-listing-file-modified-sort="1792713293308" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="62">
+<a href="./animations/fourier3d.html" class="vignette" data-index="3" data-listing-date-sort="1792533600000" data-listing-file-modified-sort="1792798709677" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="66">
 <div class="image"><img src="./extraits/extraitFourier3D.jpg" alt=""></div>
-<div class="titre">Séries de Fourier</div>
+<div class="titre">Séries de Fourier</div>   <!-- titre court s'il existe, sinon le titre complet -->
 </a>
 
 </div>
