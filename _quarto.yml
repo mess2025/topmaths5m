@@ -13,13 +13,13 @@ project:
   resources:                  # dossiers copiés tels quels dans le site
     - extraits/
     - documents/
-    # - CNAME                 # À RÉACTIVER quand le domaine OVH sera relié (indique à GitHub topmaths5m.fr)
+    - CNAME                   # indique à GitHub le nom de domaine topmaths5m.fr
 
 lang: fr                      # textes automatiques en français
 
 website:
   title: "Top Maths 5M"
-  # site-url: https://topmaths5m.fr   # À RÉACTIVER quand le domaine OVH sera relié
+  site-url: https://topmaths5m.fr
   search: false               # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
   navbar:
     title: "Top Maths 5M"     # « 5M » est colorié en or par le script assets/commun.js
