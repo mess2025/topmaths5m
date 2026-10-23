@@ -1,0 +1,12 @@
+---
+title: "Exemple : devoir n° [X], sujets A et B"
+description: "Exemple de page avec un PDF à télécharger (à remplacer)."
+date: 2026-10-22
+pdf: true
+---
+
+<!-- Pour proposer un PDF : le déposer dans le dossier documents/
+     puis mettre un lien comme ci-dessous. -->
+
+- [Sujet A (PDF)](../../documents/[nomdufichier].pdf)
+- [Sujet B (PDF)](../../documents/[nomdufichier].pdf)

@@ -1,0 +1,17 @@
+---
+title: "Première spécialité"
+description: "Cours, devoirs et corrigés de première."
+toc: false
+# Liste automatique de tous les documents de ce dossier (cours, devoirs, corrigés, fiches)
+listing:
+  contents: "*.qmd"
+  type: table
+  sort: "date desc"
+  fields: [title, description, date]
+  field-display-names:
+    title: "Document"
+    description: "Contenu"
+    date: "Date"
+  filter-ui: true
+  sort-ui: false
+---

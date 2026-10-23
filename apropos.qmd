@@ -1,0 +1,10 @@
+---
+title: "À propos"
+toc: false
+---
+
+[Présentation : qui je suis, ce que j'enseigne, pourquoi ce site.]
+
+**Top Maths 5M** : [explication du nom].
+
+Mes animations sont aussi sur [YouTube](#) et [TikTok](#).

@@ -1,0 +1,197 @@
+/*-- scss:defaults --*/
+// =========================================================
+//  APPARENCE DU SITE (d'après la maquette 13)
+//  Pour changer une couleur : la modifier ici, une seule fois.
+// =========================================================
+
+// Polices Google, comme maa.org : Space Grotesk (titres, logo) et Figtree (texte)
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Figtree:wght@400;600;700&display=swap');
+
+// ---------- Couleurs ----------
+$bleuhaut: #004D8D;        // haut du dégradé (bleu de maa.org)
+$bleunuit: #0A1A33;        // bas du dégradé et fond des pages
+$texte2: #C3CFE0;          // texte secondaire
+$accent: #E9D8A6;          // or pâle : « 5M », liens, soulignés, cadres des niveaux
+$accentclair: #F5EBCB;     // or pâle au survol
+$piedpage: #071326;        // pied de page
+$bordure: rgba(255,255,255,.14);   // bordures des cartes
+
+// ---------- Variables de Quarto / Bootstrap ----------
+$body-bg: $bleunuit;
+$body-color: #FFFFFF;
+$link-color: $accent;
+$primary: $accent;
+$font-family-sans-serif: 'Figtree', Helvetica, Arial, sans-serif;
+$headings-font-family: 'Space Grotesk', 'Figtree', sans-serif;
+$font-size-base: 1.0625rem;          // 17 px
+$navbar-bg: transparent;             // menu posé sur le dégradé, sans bandeau
+$navbar-fg: #FFFFFF;
+$navbar-hl: $accent;
+$footer-bg: $piedpage;
+$footer-fg: $texte2;
+$code-color: $accentclair;
+$border-color: $bordure;
+
+/*-- scss:rules --*/
+
+// ---------- Fond : dégradé bleu en haut de chaque page ----------
+body{
+  background: linear-gradient($bleuhaut, $bleunuit) no-repeat top / 100% 380px, $bleunuit;
+  line-height: 1.6;
+}
+// Sur l'accueil, le dégradé descend plus bas (jusqu'aux niveaux)
+body.accueil{
+  background: linear-gradient($bleuhaut, $bleunuit) no-repeat top / 100% 560px, $bleunuit;
+}
+
+// ---------- Menu (en-tête) ----------
+// Le menu défile avec la page (il ne reste pas collé en haut)
+#quarto-header{ position: absolute !important; top: 0; left: 0; right: 0; transform: none !important; background: transparent; }
+.navbar{ background: transparent !important; box-shadow: none; padding-top: 10px; padding-bottom: 10px; }
+// Le menu est aligné sur la même largeur que le contenu (1280 px au plus)
+.navbar .navbar-container{ max-width: 1280px; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+.navbar-title{ font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -.01em; color: #FFF; }
+.navbar-title .cinqm{ color: $accent; }
+.navbar .nav-link{ font-weight: 600; font-size: 16px; opacity: .9; }
+.navbar .nav-link:hover, .navbar .nav-link.active{ color: $accent !important; opacity: 1; }
+// Menu déroulant du téléphone : fond bleu nuit
+@media (max-width: 991.98px){
+  .navbar-collapse{ background: rgba(10,26,51,.97); border-radius: 12px; padding: 8px 16px; }
+}
+
+// ---------- Titres ----------
+h1, h2, h3, h4{ font-family: 'Space Grotesk', 'Figtree', sans-serif; font-weight: 700; letter-spacing: -.01em; }
+// Petit trait or sous les titres de section
+h2{ border-bottom: 0 !important; }
+h2::after{ content: ""; display: block; width: 40px; height: 3px; background: $accent; margin-top: 6px; border-radius: 2px; }
+.quarto-title .title{ font-size: 2.6rem; }
+.quarto-title-meta, .description, .subtitle{ color: $texte2; }
+
+// ---------- Pied de page ----------
+.nav-footer{ border-top: 1px solid $bordure; background: $piedpage; }
+.nav-footer a{ color: $accent; }
+// Pied de page aligné sur la largeur du contenu (1280 px au plus)
+footer.footer{ background: $piedpage; border-top: 1px solid $bordure; }
+footer.footer .nav-footer{ max-width: 1280px; margin: 0 auto; padding-left: 32px !important; padding-right: 32px !important; border-top: 0; }
+
+// ---------- Encadrés (définitions, théorèmes, remarques) ----------
+.callout{ background: rgba(255,255,255,.05); border-color: $bordure; }
+.callout .callout-header{ background: rgba(255,255,255,.06) !important; }
+
+// ---------- Lecteur vidéo au format portrait 9:16 ----------
+.lecteurportrait{ max-width: 360px; margin: 1.5rem auto; aspect-ratio: 9 / 16; border-radius: 14px; overflow: hidden; background: #000; border: 1px solid $bordure; box-shadow: 0 24px 60px rgba(0,8,20,.55); }
+.lecteurportrait video, .lecteurportrait iframe{ width: 100%; height: 100%; display: block; border: 0; object-fit: cover; }
+
+// =========================================================
+//  PAGE D'ACCUEIL
+// =========================================================
+// La toile de la vague (créée par assets/vague.js), tout en haut, derrière le menu
+#vague{
+  position: absolute; top: 0; left: 0; width: 100%; z-index: 0; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 64%);
+          mask-image: linear-gradient(to bottom, #000 0%, #000 32%, transparent 64%);
+}
+#quarto-header{ z-index: 10; }
+body.accueil #quarto-content{ position: relative; z-index: 1; }
+// Sur l'accueil, le contenu fait au plus 1280 px de large, centré, avec des marges sur les côtés
+body.accueil .heros, body.accueil .duo{ max-width: 1280px; margin-left: auto; margin-right: auto; padding-left: 32px; padding-right: 32px; }
+body.accueil #title-block-header{ display: none; }
+
+.heros{ position: relative; margin-top: -26px; }   // remonte un peu le texte sous le menu
+.accueil-haut{ display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 48px; padding-top: 12px; padding-bottom: 12px; }
+.accroche{ flex: 1 1 560px; min-width: 0; }
+.bienvenue{ font-size: 14px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: $accent; margin-bottom: 8px; }
+.accroche h1{ margin: 0 0 10px; font-size: 46px; line-height: 1.08; letter-spacing: -.02em; text-wrap: balance; }
+.accroche p{ margin: 0 0 18px; font-size: 17px; color: $texte2; max-width: 600px; }
+.boutons{ display: flex; flex-wrap: wrap; gap: 14px; }
+.bouton{ display: inline-block; padding: 11px 22px; border-radius: 999px; text-decoration: none; font-weight: 700; font-size: 16px; transition: background .3s, color .3s, border-color .3s; }
+.bouton.plein{ background: #FFF; color: #0A2A4D; }
+.bouton.plein:hover{ background: $accentclair; color: #0A2A4D; }
+.bouton.contour{ border: 1.5px solid rgba(255,255,255,.55); color: #FFF; }
+.bouton.contour:hover{ border-color: $accent; color: $accent; }
+
+// Vitrine : extraits au format portrait 9:16 qui défilent en fondu
+.vitrine{ flex: 0 0 200px; }
+.ecran{ position: relative; aspect-ratio: 9 / 16; width: 100%; background: #000; border: 1px solid $bordure; border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px rgba(0,8,20,.55); }
+.ecran video, .ecran img{ position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 1.4s ease; }
+.ecran .visible{ opacity: 1; }
+// Légende de hauteur fixe : la page ne bouge pas quand le titre change
+.legende{ margin-top: 8px; height: 2.6em; line-height: 1.3; display: flex; flex-direction: column; }
+.legende .titre{ font-weight: 700; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity .6s; }
+.legende .domaine{ font-size: 13px; color: $texte2; white-space: nowrap; transition: opacity .6s; }
+.points{ display: flex; gap: 7px; justify-content: center; margin-top: 4px; }
+.points i{ width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.25); transition: background .6s; }
+.points i.actif{ background: $accent; }
+
+// Sous le texte d'accueil : les niveaux à gauche, les animations récentes à droite
+.rangee{ display: flex; gap: 40px; margin-top: 18px; align-items: flex-start; }
+.choix{ flex: 1 1 auto; min-width: 0; }
+.intitule{ font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 19px; margin-bottom: 10px; }
+.entete{ display: flex; justify-content: space-between; align-items: baseline; gap: 16px; margin-bottom: 10px; }
+.entete .intitule{ margin-bottom: 0; }
+.toutes{ font-weight: 600; font-size: 14px; white-space: nowrap; }
+
+// Les 4 niveaux, mis en relief (le cœur du site) :
+// fond plus clair, cadre or pâle, tranche sombre dessous et reflet clair en haut (effet 3D)
+.niveaux{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.niveau{
+  display: block; background: linear-gradient(rgba(255,255,255,.28), rgba(255,255,255,.18));
+  border: 1px solid rgba(233,216,166,.55); border-radius: 12px; padding: 13px 18px;
+  text-decoration: none; color: #FFF;
+  box-shadow: 0 4px 0 rgba(0,0,0,.45), 0 18px 34px rgba(0,0,0,.75), inset 0 1px 0 rgba(255,255,255,.45);
+  transition: border-color .3s, transform .3s, box-shadow .3s;
+}
+.niveau:hover{ border-color: $accent; color: #FFF; transform: translateY(-3px); box-shadow: 0 7px 0 rgba(0,0,0,.45), 0 24px 40px rgba(0,0,0,.8), inset 0 1px 0 rgba(255,255,255,.5); }
+.niveau .abrege{ font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; color: $accent; line-height: 1; }
+.niveau .nom{ font-weight: 600; font-size: 14px; margin-top: 4px; line-height: 1.3; }
+
+// Animations récentes : petites vignettes au format portrait 9:16
+.recentes{ flex: 0 0 auto; }
+.vignettes{ display: grid; grid-template-columns: repeat(4, 84px); gap: 12px; }
+.vignette{ display: block; text-decoration: none; color: #FFF; }
+.vignette .image{ aspect-ratio: 9 / 16; border-radius: 10px; overflow: hidden; background: #000; border: 1px solid $bordure; transition: border-color .3s; }
+.vignette img{ width: 100%; height: 100%; object-fit: cover; object-position: center 40%; display: block; }
+.vignette:hover .image{ border-color: $accent; }
+.vignette .titre{ font-weight: 600; font-size: 12.5px; margin-top: 5px; line-height: 1.25; }
+.vignette:hover{ color: $accent; }
+
+// Documents et article : cartes avec ombre légère
+.duo{ display: flex; flex-wrap: wrap; gap: 20px; padding-top: 20px; padding-bottom: 32px; }
+.carte{ background: rgba(255,255,255,.05); border: 1px solid $bordure; border-radius: 12px; padding: 12px 22px; min-width: 0; box-shadow: 0 12px 28px rgba(0,0,0,.6); }
+.carte.documents{ flex: 1 1 520px; }
+.carte.article{ flex: 1 1 340px; }
+.carte .intitule{ font-size: 19px; margin-bottom: 8px; }
+.carte .intitule::after{ content: ""; display: block; width: 40px; height: 3px; background: $accent; margin-top: 6px; border-radius: 2px; }
+.liste{ display: flex; flex-direction: column; gap: 7px; font-size: 16px; }
+.ligne{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; border-bottom: 1px solid $bordure; padding-bottom: 7px; }
+.ligne:last-child{ border-bottom: 0; padding-bottom: 0; }
+.ligne a.titredoc{ color: #FFF; text-decoration: none; }
+.ligne a.titredoc:hover{ color: $accent; }
+.carte .resume{ margin: 0 0 8px; color: $texte2; font-size: 16px; }
+.carte .titrearticle{ font-weight: 700; margin-bottom: 4px; }
+// Les listes automatiques de Quarto ne doivent pas ajouter de marges ici
+.accueil .quarto-listing{ margin: 0; padding: 0; }
+
+// ---------- Téléphone et tablette ----------
+@media (max-width: 1000px){
+  .rangee{ flex-wrap: wrap; }
+}
+@media (max-width: 640px){
+  body.accueil .heros, body.accueil .duo, .navbar .navbar-container{ padding-left: 18px; padding-right: 18px; }
+  .accroche h1{ font-size: 38px; }
+  .accueil-haut{ padding-top: 20px; gap: 32px; }
+  .vitrine{ flex-basis: 100%; max-width: 260px; margin: 0 auto; }
+  .vignettes{ grid-template-columns: repeat(4, 1fr); }
+  .recentes{ flex: 1 1 100%; }
+}
+
+// =========================================================
+//  PAGES DE NIVEAU ET LISTES (Supérieur, Lycée, Articles, Animations)
+// =========================================================
+.quarto-listing .listing-title a, .quarto-listing a{ text-decoration: none; }
+.quarto-listing-default .quarto-post{ border-bottom: 1px solid $bordure; }
+table.quarto-listing-table{ color: #FFF; }
+// Grille d'animations : vignettes portrait
+.grilleanimations{ display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 18px; }
+.grilleanimations .vignette .titre{ font-size: 14px; }
+.grilleanimations .vignette .domaine{ font-size: 13px; color: $texte2; }

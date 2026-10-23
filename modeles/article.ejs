@@ -1,0 +1,10 @@
+<!-- Modèle : « Dernier article » (page d'accueil) -->
+```{=html}
+<% for (const item of items) { %>
+<div <%= metadataAttrs(item) %>>
+<div class="titrearticle"><%= item.title %></div>
+<p class="resume"><%= item.description %></p>
+<a href="<%- item.path %>">Lire l'article</a>
+</div>
+<% } %>
+```

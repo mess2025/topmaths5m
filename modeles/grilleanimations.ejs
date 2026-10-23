@@ -1,0 +1,12 @@
+<!-- Modèle : grille de toutes les animations (page Animations) -->
+```{=html}
+<div class="grilleanimations">
+<% for (const item of items) { %>
+<a href="<%- item.path %>" class="vignette" <%= metadataAttrs(item) %>>
+<div class="image"><img src="<%- item.image %>" alt=""></div>
+<div class="titre"><%= item.title %></div>
+<% if (item.description) { %><div class="domaine"><%= item.description %></div><% } %>
+</a>
+<% } %>
+</div>
+```

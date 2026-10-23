@@ -1,0 +1,15 @@
+---
+title: "Pourquoi 0,999… = 1 ?"
+description: "Une égalité qui surprend, expliquée simplement (exemple d'article à remplacer)."
+date: 2026-10-23
+---
+
+Notons $x = 0{,}999\ldots$ Alors $10x = 9{,}999\ldots$, et en soustrayant :
+$$
+10x - x = 9 \quad\Longrightarrow\quad x = 1 .
+$$
+
+Plus rigoureusement, $0{,}999\ldots$ est la somme de la série géométrique
+$$
+\sum_{k=1}^{+\infty} \frac{9}{10^k} = \frac{9}{10}\cdot\frac{1}{1-\frac{1}{10}} = 1 .
+$$

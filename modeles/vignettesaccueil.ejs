@@ -1,0 +1,11 @@
+<!-- Modèle : petites vignettes portrait des animations récentes (page d'accueil) -->
+```{=html}
+<div class="vignettes">
+<% for (const item of items) { %>
+<a href="<%- item.path %>" class="vignette" <%= metadataAttrs(item) %>>
+<div class="image"><img src="<%- item.image %>" alt=""></div>
+<div class="titre"><%= item.title %></div>
+</a>
+<% } %>
+</div>
+```

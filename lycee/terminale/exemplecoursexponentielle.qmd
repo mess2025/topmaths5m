@@ -1,0 +1,32 @@
+---
+title: "Exemple de cours : la fonction exponentielle"
+description: "Page d'exemple pour montrer la mise en forme (à remplacer)."
+date: 2026-10-23
+---
+
+<!-- Ceci est un EXEMPLE de page de cours. On écrit comme en LaTeX :
+     les formules entre $ … $ (dans la ligne) ou $$ … $$ (centrées). -->
+
+## Définition
+
+::: {.callout-note title="Définition"}
+Il existe une unique fonction $f$ dérivable sur $\mathbb{R}$ telle que $f' = f$ et $f(0) = 1$.
+On l'appelle **fonction exponentielle** et on la note $\exp$.
+:::
+
+## Propriétés
+
+Pour tous réels $a$ et $b$ :
+$$
+e^{a+b} = e^a \, e^b, \qquad e^{-a} = \frac{1}{e^a}, \qquad \left(e^a\right)^n = e^{na} \quad (n \in \mathbb{Z}).
+$$
+
+::: {.callout-tip title="Théorème"}
+$$
+\lim_{x \to +\infty} \frac{e^x}{x} = +\infty
+$$
+:::
+
+## Animation liée
+
+Voir l'animation [Formule d'Euler en 3D](../../animations/eulerspirale.qmd).

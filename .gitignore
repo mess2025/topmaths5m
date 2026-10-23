@@ -1,0 +1,4 @@
+# Fichiers à ne pas envoyer sur GitHub
+/.quarto/
+/_site/
+.DS_Store

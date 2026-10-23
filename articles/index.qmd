@@ -1,0 +1,10 @@
+---
+title: "Articles"
+description: "Réflexions et idées autour des mathématiques."
+toc: false
+listing:
+  contents: "*.qmd"
+  sort: "date desc"
+  type: default
+  fields: [date, title, description]
+---

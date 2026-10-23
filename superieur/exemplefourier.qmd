@@ -1,0 +1,13 @@
+---
+title: "Exemple : séries de Fourier, fiche"
+description: "Page d'exemple pour le supérieur (à remplacer)."
+date: 2026-10-21
+---
+
+Pour une fonction $f$ de période $2\pi$, continue par morceaux, les coefficients de Fourier sont
+$$
+a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\cos(nt)\,dt, \qquad
+b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(t)\sin(nt)\,dt .
+$$
+
+Voir l'animation [Séries de Fourier](../animations/fourier3d.qmd).

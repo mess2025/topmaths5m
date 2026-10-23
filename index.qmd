@@ -1,0 +1,120 @@
+---
+title: "Top Maths 5M"
+pagetitle: "Top Maths 5M — les maths, expliquées pas à pas"
+page-layout: custom
+toc: false
+body-classes: accueil
+include-after-body:
+  - text: |
+      <script src="assets/vague.js"></script>
+      <script src="assets/vitrine.js"></script>
+# Listes remplies automatiquement par Quarto (rien à modifier ici pour ajouter du contenu)
+listing:
+  - id: recentes                 # les 4 dernières animations
+    contents:
+      - "animations/*.qmd"
+      - "!animations/index.qmd"
+    sort: "date desc"
+    max-items: 4
+    template: modeles/vignettesaccueil.ejs
+  - id: documents                # les 3 derniers documents (cours, devoirs, fiches…)
+    contents:
+      - "superieur/**/*.qmd"
+      - "lycee/**/*.qmd"
+      - "!**/index.qmd"
+    sort: "date desc"
+    max-items: 3
+    template: modeles/documents.ejs
+  - id: dernierarticle           # le dernier article
+    contents:
+      - "articles/*.qmd"
+      - "!articles/index.qmd"
+    sort: "date desc"
+    max-items: 1
+    template: modeles/article.ejs
+---
+
+<!-- =====================================================
+     PAGE D'ACCUEIL (design de la maquette 13)
+     Les textes peuvent être modifiés directement ici.
+     ===================================================== -->
+
+```{=html}
+<div class="heros">
+  <div class="accueil-haut">
+    <div class="accroche">
+      <div class="bienvenue">Bienvenue</div>
+      <h1>Les maths, expliquées pas à pas</h1>
+      <p>Des cours clairs, des corrigés détaillés et des animations pour tous les élèves, même ceux qui pensent ne pas aimer les maths.</p>
+      <div class="boutons">
+        <a href="lycee/index.html" class="bouton plein">Commencer par un cours</a>
+        <a href="animations/index.html" class="bouton contour">Voir les animations</a>
+      </div>
+
+      <div class="rangee">
+        <!-- Les 4 niveaux (du supérieur à la seconde) -->
+        <div class="choix">
+          <div class="intitule">Choisis ton niveau</div>
+          <div class="niveaux">
+            <a href="superieur/index.html" class="niveau"><div class="abrege">Sup</div><div class="nom">Supérieur et partiels</div></a>
+            <a href="lycee/terminale/index.html" class="niveau"><div class="abrege">Tle</div><div class="nom">Terminale</div></a>
+            <a href="lycee/premiere/index.html" class="niveau"><div class="abrege">1re</div><div class="nom">Première spécialité</div></a>
+            <a href="lycee/seconde/index.html" class="niveau"><div class="abrege">2de</div><div class="nom">Seconde</div></a>
+          </div>
+        </div>
+
+        <!-- Animations récentes : remplies automatiquement (dossier animations/) -->
+        <div class="recentes">
+          <div class="entete"><div class="intitule">Animations récentes</div><a href="animations/index.html" class="toutes">Tout voir →</a></div>
+```
+
+::: {#recentes}
+:::
+
+```{=html}
+        </div>
+      </div>
+    </div>
+
+    <!-- Vitrine : les extraits défilent l'un après l'autre, en fondu.
+         Pour ajouter un extrait : copier une ligne <video …> et changer les noms. -->
+    <div class="vitrine">
+      <div class="ecran">
+        <video muted playsinline preload="auto"     poster="extraits/extraitEulerSpirale.jpg"       src="extraits/extraitEulerSpirale.mp4"       data-titre="Formule d'Euler en 3D"  data-domaine="Complexes"></video>
+        <video muted playsinline preload="metadata" poster="extraits/extraitRotation3D.jpg"         src="extraits/extraitRotation3D.mp4"         data-titre="Matrices de rotation"   data-domaine="Algèbre linéaire"></video>
+        <video muted playsinline preload="metadata" poster="extraits/extraitFourier3D.jpg"          src="extraits/extraitFourier3D.mp4"          data-titre="Séries de Fourier"      data-domaine="Analyse"></video>
+        <video muted playsinline preload="metadata" poster="extraits/extraitCubeIdentite.jpg"       src="extraits/extraitCubeIdentite.mp4"       data-titre="(a + b)³ en volume"     data-domaine="Algèbre"></video>
+        <video muted playsinline preload="metadata" poster="extraits/extraitDeriveeVariations.jpg"  src="extraits/extraitDeriveeVariations.mp4"  data-titre="Dérivée et variations"  data-domaine="Analyse"></video>
+        <video muted playsinline preload="metadata" poster="extraits/extraitTangenteCotangente.jpg" src="extraits/extraitTangenteCotangente.mp4" data-titre="Tangente et cotangente" data-domaine="Trigonométrie"></video>
+      </div>
+      <div class="legende">
+        <span class="titre">Formule d'Euler en 3D</span>
+        <span class="domaine">Complexes</span>
+      </div>
+      <div class="points"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Documents et article : remplis automatiquement -->
+<div class="duo">
+  <div class="carte documents">
+    <div class="intitule">Nouveaux documents</div>
+```
+
+::: {#documents}
+:::
+
+```{=html}
+  </div>
+  <div class="carte article">
+    <div class="intitule">Dernier article</div>
+```
+
+::: {#dernierarticle}
+:::
+
+```{=html}
+  </div>
+</div>
+```

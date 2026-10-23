@@ -1,0 +1,53 @@
+# =========================================================
+#  RÉGLAGES GÉNÉRAUX DU SITE TOP MATHS 5M (topmaths5m.fr)
+#  Ce fichier décrit : le menu, le pied de page, l'apparence.
+#  Pour fabriquer le site : ouvrir un terminal dans ce dossier
+#  et taper  quarto preview  (aperçu)  ou  quarto render  (site final).
+# =========================================================
+
+project:
+  type: website
+  output-dir: _site           # le site fabriqué arrive dans ce dossier
+  resources:                  # dossiers copiés tels quels dans le site
+    - extraits/
+    - documents/
+    - CNAME                   # indique à GitHub le nom de domaine topmaths5m.fr
+
+lang: fr                      # textes automatiques en français
+
+website:
+  title: "Top Maths 5M"
+  site-url: https://topmaths5m.fr
+  search: false               # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
+  navbar:
+    title: "Top Maths 5M"     # « 5M » est colorié en or par le script assets/commun.js
+    right:                    # le menu, dans l'ordre
+      - text: "Accueil"
+        href: index.qmd
+      - text: "Supérieur"
+        href: superieur/index.qmd
+      - text: "Lycée"
+        href: lycee/index.qmd
+      - text: "Animations"
+        href: animations/index.qmd
+      - text: "Articles"
+        href: articles/index.qmd
+      - text: "À propos"
+        href: apropos.qmd
+  page-footer:
+    left: "© Top Maths 5M · topmaths5m.fr"
+    right:
+      - text: "YouTube"
+        href: "https://www.youtube.com/"   # [mettre l'adresse exacte de la chaîne YouTube]
+      - text: "TikTok"
+        href: "https://www.tiktok.com/"    # [mettre l'adresse exacte du compte TikTok]
+      - text: "À propos"
+        href: apropos.qmd
+
+format:
+  html:
+    theme: [darkly, assets/theme.scss]   # base sombre + nos couleurs (assets/theme.scss)
+    html-math-method: katex              # formules LaTeX affichées rapidement
+    toc: true                            # sommaire à droite sur les pages de cours
+    toc-title: "Sommaire"
+    include-after-body: assets/commun.html

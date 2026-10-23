@@ -1,0 +1,11 @@
+<!-- Modèle : liste « Nouveaux documents » (page d'accueil). Si la page du document indique  pdf: true  dans son en-tête, le lien affiche « PDF » ; sinon « Lire » -->
+```{=html}
+<div class="liste">
+<% for (const item of items) { %>
+<div class="ligne" <%= metadataAttrs(item) %>>
+<a class="titredoc" href="<%- item.path %>"><%= item.title %></a>
+<a href="<%- item.path %>"><%= item.pdf ? 'PDF' : 'Lire' %></a>
+</div>
+<% } %>
+</div>
+```

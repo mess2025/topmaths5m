@@ -1,0 +1,7 @@
+<!-- Petit script ajouté à toutes les pages -->
+<script>
+  // Colorie « 5M » en or dans le logo du menu
+  document.querySelectorAll('.navbar-title').forEach(t => {
+    t.innerHTML = t.textContent.replace('5M', '<span class="cinqm">5M</span>');
+  });
+</script>

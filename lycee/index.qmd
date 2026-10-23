@@ -1,0 +1,13 @@
+---
+title: "Lycée"
+description: "Choisis ta classe."
+toc: false
+---
+
+```{=html}
+<div class="niveaux" style="max-width:640px">
+  <a href="terminale/index.html" class="niveau"><div class="abrege">Tle</div><div class="nom">Terminale</div></a>
+  <a href="premiere/index.html" class="niveau"><div class="abrege">1re</div><div class="nom">Première spécialité</div></a>
+  <a href="seconde/index.html" class="niveau"><div class="abrege">2de</div><div class="nom">Seconde</div></a>
+</div>
+```

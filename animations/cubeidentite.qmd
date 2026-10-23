@@ -1,0 +1,19 @@
+---
+title: "(a + b)³ en volume"
+description: "Algèbre"
+date: 2026-10-19
+image: ../extraits/extraitCubeIdentite.jpg
+toc: false
+---
+
+<!-- Lecteur vidéo au format portrait 9:16.
+     Pour l'instant : l'extrait court. Quand la vidéo sera sur YouTube, remplacer
+     la ligne <video …> par :
+     <iframe src="https://www.youtube.com/embed/CODEDELAVIDEO" allowfullscreen></iframe> -->
+```{=html}
+<div class="lecteurportrait">
+  <video controls playsinline poster="../extraits/extraitCubeIdentite.jpg" src="../extraits/extraitCubeIdentite.mp4"></video>
+</div>
+```
+
+[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
