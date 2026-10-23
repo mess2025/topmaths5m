@@ -67,12 +67,19 @@
     "href": "animations/index.html",
     "title": "Animations",
     "section": "",
-    "text": "Formule d'Euler en 3D\nComplexes\n\n\n\n\nMatrices de rotation\nAlgèbre linéaire\n\n\n\n\nSéries de Fourier\nAnalyse\n\n\n\n\nDérivée et variations\nAnalyse\n\n\n\n\n(a + b)³ en volume\nAlgèbre\n\n\n\n\nTangente et cotangente\nTrigonométrie\n\n\n\nAucun article correspondant"
+    "text": "Formules d'addition\nTrigonométrie\n\n\n\n\nFormule d'Euler en 3D\nComplexes\n\n\n\n\nMatrices de rotation\nAlgèbre linéaire\n\n\n\n\nSéries de Fourier\nAnalyse\n\n\n\n\nDérivée et variations\nAnalyse\n\n\n\n\n(a + b)³ en volume\nAlgèbre\n\n\n\n\nTangente et cotangente\nTrigonométrie\n\n\n\nAucun article correspondant"
   },
   {
-    "objectID": "animations/eulerspirale.html",
-    "href": "animations/eulerspirale.html",
-    "title": "Formule d’Euler en 3D",
+    "objectID": "animations/formulesaddition.html",
+    "href": "animations/formulesaddition.html",
+    "title": "Formules d’addition",
+    "section": "",
+    "text": "Une démonstration géométrique des formules d’addition, dans le cercle trigonométrique :\n\n\\cos(a+b) = \\cos a \\cos b - \\sin a \\sin b,\n\\qquad\n\\sin(a+b) = \\sin a \\cos b + \\cos a \\sin b .\n\nOn lit sur la figure : OK = \\cos(a+b), OH = \\cos a \\cos b et KH = \\sin a \\sin b."
+  },
+  {
+    "objectID": "animations/deriveevariations.html",
+    "href": "animations/deriveevariations.html",
+    "title": "Dérivée et variations",
     "section": "",
     "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
   },
@@ -84,9 +91,9 @@
     "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
   },
   {
-    "objectID": "animations/deriveevariations.html",
-    "href": "animations/deriveevariations.html",
-    "title": "Dérivée et variations",
+    "objectID": "animations/eulerspirale.html",
+    "href": "animations/eulerspirale.html",
+    "title": "Formule d’Euler en 3D",
     "section": "",
     "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
   },

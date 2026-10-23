@@ -19,6 +19,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/animations/formulesaddition.html",
       "/animations/eulerspirale.html",
       "/animations/rotation3d.html",
       "/animations/fourier3d.html",
@@ -40,6 +41,7 @@
   {
     "listing": "/animations/index.html",
     "items": [
+      "/animations/formulesaddition.html",
       "/animations/eulerspirale.html",
       "/animations/rotation3d.html",
       "/animations/fourier3d.html",
