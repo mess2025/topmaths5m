@@ -1,60 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://topmaths5m.fr/animations/tangentecotangente.html</loc>
-    <lastmod>2026-10-22T23:54:53.337Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/animations/deriveevariations.html</loc>
-    <lastmod>2026-10-22T23:54:53.315Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/animations/eulerspirale.html</loc>
-    <lastmod>2026-10-22T23:54:53.294Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/animations/rotation3d.html</loc>
-    <lastmod>2026-10-22T23:54:53.300Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/lycee/seconde/index.html</loc>
-    <lastmod>2026-10-22T23:55:01.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/lycee/terminale/exempledevoir.html</loc>
-    <lastmod>2026-10-22T23:55:13.441Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/lycee/index.html</loc>
-    <lastmod>2026-10-22T23:55:01.213Z</lastmod>
-  </url>
-  <url>
     <loc>https://topmaths5m.fr/superieur/index.html</loc>
     <lastmod>2026-10-22T23:55:01.195Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/index.html</loc>
-    <lastmod>2026-10-22T23:55:48.751Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/articles/index.html</loc>
-    <lastmod>2026-10-22T23:55:01.216Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/MODEDEMPLOI.html</loc>
-    <lastmod>2026-10-22T23:58:06.214Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/articles/pourquoi0999egal1.html</loc>
-    <lastmod>2026-10-22T23:55:13.454Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/superieur/exemplefourier.html</loc>
-    <lastmod>2026-10-22T23:55:13.447Z</lastmod>
-  </url>
-  <url>
-    <loc>https://topmaths5m.fr/lycee/premiere/index.html</loc>
-    <lastmod>2026-10-22T23:55:01.204Z</lastmod>
   </url>
   <url>
     <loc>https://topmaths5m.fr/lycee/terminale/index.html</loc>
@@ -65,19 +13,67 @@
     <lastmod>2026-10-22T23:55:13.432Z</lastmod>
   </url>
   <url>
-    <loc>https://topmaths5m.fr/apropos.html</loc>
-    <lastmod>2026-10-22T23:55:01.225Z</lastmod>
+    <loc>https://topmaths5m.fr/lycee/premiere/index.html</loc>
+    <lastmod>2026-10-22T23:55:01.204Z</lastmod>
   </url>
   <url>
-    <loc>https://topmaths5m.fr/animations/cubeidentite.html</loc>
-    <lastmod>2026-10-22T23:54:53.328Z</lastmod>
+    <loc>https://topmaths5m.fr/index.html</loc>
+    <lastmod>2026-10-22T23:55:48.751Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/articles/index.html</loc>
+    <lastmod>2026-10-22T23:55:01.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/animations/tangentecotangente.html</loc>
+    <lastmod>2026-10-22T23:54:53.337Z</lastmod>
   </url>
   <url>
     <loc>https://topmaths5m.fr/animations/index.html</loc>
     <lastmod>2026-10-22T23:54:53.344Z</lastmod>
   </url>
   <url>
+    <loc>https://topmaths5m.fr/animations/eulerspirale.html</loc>
+    <lastmod>2026-10-22T23:54:53.294Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/animations/cubeidentite.html</loc>
+    <lastmod>2026-10-22T23:54:53.328Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/animations/deriveevariations.html</loc>
+    <lastmod>2026-10-22T23:54:53.315Z</lastmod>
+  </url>
+  <url>
     <loc>https://topmaths5m.fr/animations/fourier3d.html</loc>
     <lastmod>2026-10-22T23:54:53.308Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/animations/rotation3d.html</loc>
+    <lastmod>2026-10-22T23:54:53.300Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/apropos.html</loc>
+    <lastmod>2026-10-22T23:55:01.225Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/articles/pourquoi0999egal1.html</loc>
+    <lastmod>2026-10-22T23:55:13.454Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/lycee/index.html</loc>
+    <lastmod>2026-10-22T23:55:01.213Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/lycee/seconde/index.html</loc>
+    <lastmod>2026-10-22T23:55:01.209Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/lycee/terminale/exempledevoir.html</loc>
+    <lastmod>2026-10-22T23:55:13.441Z</lastmod>
+  </url>
+  <url>
+    <loc>https://topmaths5m.fr/superieur/exemplefourier.html</loc>
+    <lastmod>2026-10-22T23:55:13.447Z</lastmod>
   </url>
 </urlset>

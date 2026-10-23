@@ -1,13 +1,20 @@
 [
   {
-    "listing": "/lycee/seconde/index.html",
-    "items": []
-  },
-  {
     "listing": "/superieur/index.html",
     "items": [
       "/superieur/exemplefourier.html"
     ]
+  },
+  {
+    "listing": "/lycee/terminale/index.html",
+    "items": [
+      "/lycee/terminale/exemplecoursexponentielle.html",
+      "/lycee/terminale/exempledevoir.html"
+    ]
+  },
+  {
+    "listing": "/lycee/premiere/index.html",
+    "items": []
   },
   {
     "listing": "/index.html",
@@ -31,17 +38,6 @@
     ]
   },
   {
-    "listing": "/lycee/premiere/index.html",
-    "items": []
-  },
-  {
-    "listing": "/lycee/terminale/index.html",
-    "items": [
-      "/lycee/terminale/exemplecoursexponentielle.html",
-      "/lycee/terminale/exempledevoir.html"
-    ]
-  },
-  {
     "listing": "/animations/index.html",
     "items": [
       "/animations/eulerspirale.html",
@@ -51,5 +47,9 @@
       "/animations/cubeidentite.html",
       "/animations/tangentecotangente.html"
     ]
+  },
+  {
+    "listing": "/lycee/seconde/index.html",
+    "items": []
   }
 ]

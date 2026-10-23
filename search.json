@@ -1,143 +1,10 @@
 [
   {
-    "objectID": "animations/tangentecotangente.html",
-    "href": "animations/tangentecotangente.html",
-    "title": "Tangente et cotangente",
-    "section": "",
-    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
-  },
-  {
-    "objectID": "animations/deriveevariations.html",
-    "href": "animations/deriveevariations.html",
-    "title": "Dérivée et variations",
-    "section": "",
-    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
-  },
-  {
-    "objectID": "animations/eulerspirale.html",
-    "href": "animations/eulerspirale.html",
-    "title": "Formule d’Euler en 3D",
-    "section": "",
-    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
-  },
-  {
-    "objectID": "animations/rotation3d.html",
-    "href": "animations/rotation3d.html",
-    "title": "Matrices de rotation",
-    "section": "",
-    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
-  },
-  {
-    "objectID": "lycee/seconde/index.html",
-    "href": "lycee/seconde/index.html",
-    "title": "Seconde",
-    "section": "",
-    "text": "Document\nContenu\nDate\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "lycee/terminale/exempledevoir.html",
-    "href": "lycee/terminale/exempledevoir.html",
-    "title": "Exemple : devoir n° [X], sujets A et B",
-    "section": "",
-    "text": "Sujet A (PDF)\nSujet B (PDF)"
-  },
-  {
-    "objectID": "lycee/index.html",
-    "href": "lycee/index.html",
-    "title": "Lycée",
-    "section": "",
-    "text": "TleTerminale\n  1rePremière spécialité\n  2deSeconde"
-  },
-  {
     "objectID": "superieur/index.html",
     "href": "superieur/index.html",
     "title": "Supérieur",
     "section": "",
     "text": "Document\n\n\n\nContenu\n\n\n\nDate\n\n\n\n\n\n\n\n\nExemple : séries de Fourier, fiche\n\n\nPage d’exemple pour le supérieur (à remplacer).\n\n\n21 oct. 2026\n\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "articles/index.html",
-    "href": "articles/index.html",
-    "title": "Articles",
-    "section": "",
-    "text": "Pourquoi 0,999… = 1 ?\n\n\nUne égalité qui surprend, expliquée simplement (exemple d’article à remplacer).\n\n\n\n\n\n23 oct. 2026\n\n\n\n\n\nAucun article correspondant"
-  },
-  {
-    "objectID": "MODEDEMPLOI.html",
-    "href": "MODEDEMPLOI.html",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Double-cliquer sur apercu.command : le site s’ouvre dans le navigateur et se met à jour tout seul à chaque enregistrement d’un fichier. (Pour arrêter : fermer la fenêtre du Terminal.)\n\n\n\n\nAller dans le bon dossier : superieur/, lycee/terminale/, lycee/premiere/ ou lycee/seconde/.\nCopier une page d’exemple (par exemple exemplecoursexponentielle.qmd) et la renommer (noms sans tirets ni espaces, ex. suitesnumeriques.qmd).\nModifier l’en-tête :\n---\ntitle: \"Suites numériques\"\ndescription: \"Cours complet avec exercices\"\ndate: 2026-11-02\n---\nÉcrire le cours en dessous, comme en LaTeX : $ ... $ dans la ligne, $$ ... $$ centré.\n\nLa page apparaît automatiquement dans la liste de son niveau et dans « Nouveaux documents » sur l’accueil (les 3 plus récents, d’après la date).\n\n\n\nDéposer le PDF dans documents/, puis dans la page : [Sujet A (PDF)](../../documents/sujetA.pdf). Ajouter pdf: true dans l’en-tête pour que l’accueil affiche « PDF » au lieu de « Lire ».\n\n\n\n::: {.callout-note title=\"Définition\"}\nTexte de la définition.\n:::\nAutres couleurs : callout-tip (vert), callout-warning (orange), callout-important (rouge).\n\n\n\nCopier une page de animations/ (ex. eulerspirale.qmd) et changer : title, description (le domaine : Analyse, Algèbre…), date, image (la vignette, format portrait). Les 4 plus récentes apparaissent sur l’accueil.\n\n\n\nCopier articles/pourquoi0999egal1.qmd. Le plus récent apparaît sur l’accueil.\n\n\n\n\nCouleurs : assets/theme.scss (tout en haut).\nMenu et pied de page : _quarto.yml.\nTextes de l’accueil : index.qmd."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#voir-le-site-sur-le-mac",
-    "href": "MODEDEMPLOI.html#voir-le-site-sur-le-mac",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Double-cliquer sur apercu.command : le site s’ouvre dans le navigateur et se met à jour tout seul à chaque enregistrement d’un fichier. (Pour arrêter : fermer la fenêtre du Terminal.)"
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#ajouter-un-cours-un-devoir-une-fiche",
-    "href": "MODEDEMPLOI.html#ajouter-un-cours-un-devoir-une-fiche",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Aller dans le bon dossier : superieur/, lycee/terminale/, lycee/premiere/ ou lycee/seconde/.\nCopier une page d’exemple (par exemple exemplecoursexponentielle.qmd) et la renommer (noms sans tirets ni espaces, ex. suitesnumeriques.qmd).\nModifier l’en-tête :\n---\ntitle: \"Suites numériques\"\ndescription: \"Cours complet avec exercices\"\ndate: 2026-11-02\n---\nÉcrire le cours en dessous, comme en LaTeX : $ ... $ dans la ligne, $$ ... $$ centré.\n\nLa page apparaît automatiquement dans la liste de son niveau et dans « Nouveaux documents » sur l’accueil (les 3 plus récents, d’après la date)."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#proposer-un-pdf",
-    "href": "MODEDEMPLOI.html#proposer-un-pdf",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Déposer le PDF dans documents/, puis dans la page : [Sujet A (PDF)](../../documents/sujetA.pdf). Ajouter pdf: true dans l’en-tête pour que l’accueil affiche « PDF » au lieu de « Lire »."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#encadrés-définition-théorème-remarque",
-    "href": "MODEDEMPLOI.html#encadrés-définition-théorème-remarque",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "::: {.callout-note title=\"Définition\"}\nTexte de la définition.\n:::\nAutres couleurs : callout-tip (vert), callout-warning (orange), callout-important (rouge)."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#ajouter-une-animation",
-    "href": "MODEDEMPLOI.html#ajouter-une-animation",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Copier une page de animations/ (ex. eulerspirale.qmd) et changer : title, description (le domaine : Analyse, Algèbre…), date, image (la vignette, format portrait). Les 4 plus récentes apparaissent sur l’accueil."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#ajouter-un-article",
-    "href": "MODEDEMPLOI.html#ajouter-un-article",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Copier articles/pourquoi0999egal1.qmd. Le plus récent apparaît sur l’accueil."
-  },
-  {
-    "objectID": "MODEDEMPLOI.html#changer-une-couleur-ou-un-texte-du-menu",
-    "href": "MODEDEMPLOI.html#changer-une-couleur-ou-un-texte-du-menu",
-    "title": "Mode d’emploi du site Top Maths 5M",
-    "section": "",
-    "text": "Couleurs : assets/theme.scss (tout en haut).\nMenu et pied de page : _quarto.yml.\nTextes de l’accueil : index.qmd."
-  },
-  {
-    "objectID": "articles/pourquoi0999egal1.html",
-    "href": "articles/pourquoi0999egal1.html",
-    "title": "Pourquoi 0,999… = 1 ?",
-    "section": "",
-    "text": "Notons x = 0{,}999\\ldots Alors 10x = 9{,}999\\ldots, et en soustrayant : \n10x - x = 9 \\quad\\Longrightarrow\\quad x = 1 .\n\nPlus rigoureusement, 0{,}999\\ldots est la somme de la série géométrique \n\\sum_{k=1}^{+\\infty} \\frac{9}{10^k} = \\frac{9}{10}\\cdot\\frac{1}{1-\\frac{1}{10}} = 1 ."
-  },
-  {
-    "objectID": "superieur/exemplefourier.html",
-    "href": "superieur/exemplefourier.html",
-    "title": "Exemple : séries de Fourier, fiche",
-    "section": "",
-    "text": "Pour une fonction f de période 2\\pi, continue par morceaux, les coefficients de Fourier sont \na_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(t)\\cos(nt)\\,dt, \\qquad\nb_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(t)\\sin(nt)\\,dt .\n\nVoir l’animation Séries de Fourier."
-  },
-  {
-    "objectID": "lycee/premiere/index.html",
-    "href": "lycee/premiere/index.html",
-    "title": "Première spécialité",
-    "section": "",
-    "text": "Document\nContenu\nDate\n\n\n\n\n\nAucun article correspondant"
   },
   {
     "objectID": "lycee/terminale/index.html",
@@ -175,16 +42,23 @@
     "text": "Animation liée\nVoir l’animation Formule d’Euler en 3D."
   },
   {
-    "objectID": "apropos.html",
-    "href": "apropos.html",
-    "title": "À propos",
+    "objectID": "lycee/premiere/index.html",
+    "href": "lycee/premiere/index.html",
+    "title": "Première spécialité",
     "section": "",
-    "text": "[Présentation : qui je suis, ce que j’enseigne, pourquoi ce site.]\nTop Maths 5M : [explication du nom].\nMes animations sont aussi sur YouTube et TikTok."
+    "text": "Document\nContenu\nDate\n\n\n\n\n\nAucun article correspondant"
   },
   {
-    "objectID": "animations/cubeidentite.html",
-    "href": "animations/cubeidentite.html",
-    "title": "(a + b)³ en volume",
+    "objectID": "articles/index.html",
+    "href": "articles/index.html",
+    "title": "Articles",
+    "section": "",
+    "text": "Pourquoi 0,999… = 1 ?\n\n\nUne égalité qui surprend, expliquée simplement (exemple d’article à remplacer).\n\n\n\n\n\n23 oct. 2026\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "animations/tangentecotangente.html",
+    "href": "animations/tangentecotangente.html",
+    "title": "Tangente et cotangente",
     "section": "",
     "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
   },
@@ -196,10 +70,80 @@
     "text": "Formule d'Euler en 3D\nComplexes\n\n\n\n\nMatrices de rotation\nAlgèbre linéaire\n\n\n\n\nSéries de Fourier\nAnalyse\n\n\n\n\nDérivée et variations\nAnalyse\n\n\n\n\n(a + b)³ en volume\nAlgèbre\n\n\n\n\nTangente et cotangente\nTrigonométrie\n\n\n\nAucun article correspondant"
   },
   {
+    "objectID": "animations/eulerspirale.html",
+    "href": "animations/eulerspirale.html",
+    "title": "Formule d’Euler en 3D",
+    "section": "",
+    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
+  },
+  {
+    "objectID": "animations/cubeidentite.html",
+    "href": "animations/cubeidentite.html",
+    "title": "(a + b)³ en volume",
+    "section": "",
+    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
+  },
+  {
+    "objectID": "animations/deriveevariations.html",
+    "href": "animations/deriveevariations.html",
+    "title": "Dérivée et variations",
+    "section": "",
+    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
+  },
+  {
     "objectID": "animations/fourier3d.html",
     "href": "animations/fourier3d.html",
     "title": "Séries de Fourier",
     "section": "",
     "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
+  },
+  {
+    "objectID": "animations/rotation3d.html",
+    "href": "animations/rotation3d.html",
+    "title": "Matrices de rotation",
+    "section": "",
+    "text": "[Texte d’accompagnement de l’animation : ce qu’elle montre, les formules, le lien avec le cours.]"
+  },
+  {
+    "objectID": "apropos.html",
+    "href": "apropos.html",
+    "title": "À propos",
+    "section": "",
+    "text": "[Présentation : qui je suis, ce que j’enseigne, pourquoi ce site.]\nTop Maths 5M : [explication du nom].\nMes animations sont aussi sur YouTube et TikTok."
+  },
+  {
+    "objectID": "articles/pourquoi0999egal1.html",
+    "href": "articles/pourquoi0999egal1.html",
+    "title": "Pourquoi 0,999… = 1 ?",
+    "section": "",
+    "text": "Notons x = 0{,}999\\ldots Alors 10x = 9{,}999\\ldots, et en soustrayant : \n10x - x = 9 \\quad\\Longrightarrow\\quad x = 1 .\n\nPlus rigoureusement, 0{,}999\\ldots est la somme de la série géométrique \n\\sum_{k=1}^{+\\infty} \\frac{9}{10^k} = \\frac{9}{10}\\cdot\\frac{1}{1-\\frac{1}{10}} = 1 ."
+  },
+  {
+    "objectID": "lycee/index.html",
+    "href": "lycee/index.html",
+    "title": "Lycée",
+    "section": "",
+    "text": "TleTerminale\n  1rePremière spécialité\n  2deSeconde"
+  },
+  {
+    "objectID": "lycee/seconde/index.html",
+    "href": "lycee/seconde/index.html",
+    "title": "Seconde",
+    "section": "",
+    "text": "Document\nContenu\nDate\n\n\n\n\n\nAucun article correspondant"
+  },
+  {
+    "objectID": "lycee/terminale/exempledevoir.html",
+    "href": "lycee/terminale/exempledevoir.html",
+    "title": "Exemple : devoir n° [X], sujets A et B",
+    "section": "",
+    "text": "Sujet A (PDF)\nSujet B (PDF)"
+  },
+  {
+    "objectID": "superieur/exemplefourier.html",
+    "href": "superieur/exemplefourier.html",
+    "title": "Exemple : séries de Fourier, fiche",
+    "section": "",
+    "text": "Pour une fonction f de période 2\\pi, continue par morceaux, les coefficients de Fourier sont \na_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(t)\\cos(nt)\\,dt, \\qquad\nb_n = \\frac{1}{\\pi}\\int_{-\\pi}^{\\pi} f(t)\\sin(nt)\\,dt .\n\nVoir l’animation Séries de Fourier."
   }
 ]
