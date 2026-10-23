@@ -11,7 +11,7 @@ project:
   resources:                  # dossiers copiés tels quels dans le site
     - extraits/
     - documents/
-    - CNAME                   # indique à GitHub le nom de domaine topmaths5m.fr
+    # - CNAME                 # À RÉACTIVER quand le domaine OVH sera relié (indique à GitHub topmaths5m.fr)
 
 lang: fr                      # textes automatiques en français
 
