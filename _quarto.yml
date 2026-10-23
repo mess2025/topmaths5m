@@ -8,6 +8,8 @@
 project:
   type: website
   output-dir: _site           # le site fabriqué arrive dans ce dossier
+  render:                     # pages à fabriquer (le mode d'emploi reste privé)
+    - "**/*.qmd"
   resources:                  # dossiers copiés tels quels dans le site
     - extraits/
     - documents/
@@ -17,7 +19,7 @@ lang: fr                      # textes automatiques en français
 
 website:
   title: "Top Maths 5M"
-  site-url: https://topmaths5m.fr
+  # site-url: https://topmaths5m.fr   # À RÉACTIVER quand le domaine OVH sera relié
   search: false               # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
   navbar:
     title: "Top Maths 5M"     # « 5M » est colorié en or par le script assets/commun.js
