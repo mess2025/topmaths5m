@@ -1,6 +1,6 @@
 ---
 title: "Top Maths 5M"
-pagetitle: "Top Maths 5M — les maths, expliquées pas à pas"
+pagetitle: "Top Maths 5M — cours de maths, exercices corrigés et animations (lycée et supérieur)"
 page-layout: custom
 toc: false
 body-classes: accueil
@@ -43,7 +43,7 @@ listing:
 <div class="heros">
   <div class="accueil-haut">
     <div class="accroche">
-      <div class="bienvenue">Bienvenue</div>
+      <div class="bienvenue">Bienvenue sur Top Maths 5M</div>
       <h1>Les maths, expliquées pas à pas</h1>
       <p>Des cours clairs, des corrigés détaillés et des animations pour tous les élèves, même ceux qui pensent ne pas aimer les maths.</p>
       <div class="boutons">

@@ -13,6 +13,7 @@ project:
   resources:                  # dossiers copiés tels quels dans le site
     - extraits/
     - documents/
+    - videos/                 # animations complètes (fichiers .mp4)
     - CNAME                   # indique à GitHub le nom de domaine topmaths5m.fr
 
 lang: fr                      # textes automatiques en français
@@ -20,7 +21,14 @@ lang: fr                      # textes automatiques en français
 website:
   title: "Top Maths 5M"
   site-url: https://topmaths5m.fr
-  search: false               # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
+  # ---------- Référencement (Google, partages sur les réseaux) ----------
+  description: "Top Maths 5M : cours de mathématiques, exercices corrigés, devoirs et animations pour le lycée (seconde, première, terminale) et le supérieur."
+  image: assets/partage.png   # image affichée quand on partage un lien du site
+  open-graph:
+    locale: fr_FR
+    site-name: "Top Maths 5M"
+  twitter-card: true
+  search: false              # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
   navbar:
     title: "Top Maths 5M"     # « 5M » est colorié en or par le script assets/commun.js
     right:                    # le menu, dans l'ordre
@@ -53,3 +61,4 @@ format:
     toc: true                            # sommaire à droite sur les pages de cours
     toc-title: "Sommaire"
     include-after-body: assets/commun.html
+    include-in-header: assets/referencement.html   # nom du site et ses variantes d'écriture, pour Google

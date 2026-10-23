@@ -1,0 +1,29 @@
+---
+title: "Formules d'addition"
+description: "Trigonométrie"
+date: 2026-10-24
+image: ../extraits/formulesaddition.jpg
+toc: false
+---
+
+<!-- Animation complète, au format portrait 9:16.
+     controlsList="nodownload" retire le bouton « Télécharger » du lecteur,
+     et le clic droit est désactivé sur la vidéo (protection simple, voir le mode d'emploi). -->
+```{=html}
+<div class="lecteurportrait">
+  <video controls playsinline preload="metadata"
+         controlsList="nodownload noplaybackrate" disablepictureinpicture
+         oncontextmenu="return false;"
+         poster="../extraits/formulesaddition.jpg" src="../videos/formulesaddition.mp4"></video>
+</div>
+```
+
+Une démonstration géométrique des formules d'addition, dans le cercle trigonométrique :
+
+$$
+\cos(a+b) = \cos a \cos b - \sin a \sin b,
+\qquad
+\sin(a+b) = \sin a \cos b + \cos a \sin b .
+$$
+
+On lit sur la figure : $OK = \cos(a+b)$, $OH = \cos a \cos b$ et $KH = \sin a \sin b$.
