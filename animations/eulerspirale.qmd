@@ -1,6 +1,8 @@
 ---
-title: "Formule d'Euler en 3D"
-description: "Complexes"
+title: "Formule d'Euler en 3D : comprendre e^(iθ) en animation"
+description: "Une spirale en 3D pour voir pourquoi e^(iθ) = cos θ + i sin θ : vue de face le cercle, vue de côté cosinus et sinus."   # texte lu par Google (résultats de recherche)
+domaine: "Complexes"   # petit mot affiché sous la vignette
+titrecourt: "Formule d'Euler en 3D"   # titre affiché sur les vignettes
 date: 2026-10-23
 image: ../extraits/extraitEulerSpirale.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Une spirale en 3D pour voir pourquoi $e^{i\theta} = \cos\theta + i\sin\theta$ : vue de face le cercle, vue de côté cosinus et sinus.

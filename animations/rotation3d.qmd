@@ -1,6 +1,8 @@
 ---
-title: "Matrices de rotation"
-description: "Algèbre linéaire"
+title: "Matrices de rotation en 3D : animation"
+description: "Voir agir les matrices de rotation autour des axes x, y et z, et comprendre leur écriture avec cos θ et sin θ. Pour le supérieur."   # texte lu par Google (résultats de recherche)
+domaine: "Algèbre linéaire"   # petit mot affiché sous la vignette
+titrecourt: "Matrices de rotation"   # titre affiché sur les vignettes
 date: 2026-10-22
 image: ../extraits/extraitRotation3D.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Voir agir les matrices de rotation autour des axes x, y et z, et comprendre leur écriture avec cos θ et sin θ. Pour le supérieur.

@@ -1,6 +1,8 @@
 ---
-title: "Séries de Fourier"
-description: "Analyse"
+title: "Séries de Fourier en 3D : animation"
+description: "Comment une somme de sinusoïdes reconstruit peu à peu une fonction périodique. Les séries de Fourier vues en 3D."   # texte lu par Google (résultats de recherche)
+domaine: "Analyse"   # petit mot affiché sous la vignette
+titrecourt: "Séries de Fourier"   # titre affiché sur les vignettes
 date: 2026-10-21
 image: ../extraits/extraitFourier3D.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Comment une somme de sinusoïdes reconstruit peu à peu une fonction périodique. Les séries de Fourier vues en 3D.

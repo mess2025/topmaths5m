@@ -1,6 +1,8 @@
 ---
-title: "Tangente et cotangente"
-description: "Trigonométrie"
+title: "Tangente et cotangente dans le cercle trigonométrique"
+description: "Où lire tan θ et cot θ sur le cercle trigonométrique ? Une animation pour les voir naître et varier avec l'angle."   # texte lu par Google (résultats de recherche)
+domaine: "Trigonométrie"   # petit mot affiché sous la vignette
+titrecourt: "Tangente et cotangente"   # titre affiché sur les vignettes
 date: 2026-10-18
 image: ../extraits/extraitTangenteCotangente.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Où lire tan θ et cot θ sur le cercle trigonométrique ? Une animation pour les voir naître et varier avec l'angle.

@@ -1,6 +1,8 @@
 ---
-title: "Formules d'addition"
-description: "Trigonométrie"
+title: "Formules d'addition : démonstration géométrique"
+description: "Démontrer cos(a+b) et sin(a+b) sur le cercle trigonométrique, en lisant chaque terme sur la figure."   # texte lu par Google (résultats de recherche)
+domaine: "Trigonométrie"   # petit mot affiché sous la vignette
+titrecourt: "Formules d'addition"   # titre affiché sur les vignettes
 date: 2026-10-24
 image: ../extraits/formulesaddition.jpg
 toc: false

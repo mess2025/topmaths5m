@@ -4,8 +4,8 @@
 <% for (const item of items) { %>
 <a href="<%- item.path %>" class="vignette" <%= metadataAttrs(item) %>>
 <div class="image"><img src="<%- item.image %>" alt=""></div>
-<div class="titre"><%= item.title %></div>
-<% if (item.description) { %><div class="domaine"><%= item.description %></div><% } %>
+<div class="titre"><%= item.titrecourt || item.title %></div>   <!-- titre court s'il existe, sinon le titre complet -->
+<% if (item.domaine) { %><div class="domaine"><%= item.domaine %></div><% } %>   <!-- domaine : Algèbre, Analyse… -->
 </a>
 <% } %>
 </div>

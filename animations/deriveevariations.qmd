@@ -1,6 +1,8 @@
 ---
-title: "Dérivée et variations"
-description: "Analyse"
+title: "Dérivée et variations : le lien en animation"
+description: "Quand f′ est positive, f croît ; quand f′ est négative, f décroît. Une animation pour voir ce lien sur la courbe."   # texte lu par Google (résultats de recherche)
+domaine: "Analyse"   # petit mot affiché sous la vignette
+titrecourt: "Dérivée et variations"   # titre affiché sur les vignettes
 date: 2026-10-20
 image: ../extraits/extraitDeriveeVariations.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Quand f′ est positive, f croît ; quand f′ est négative, f décroît. Une animation pour voir ce lien sur la courbe.

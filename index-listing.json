@@ -1,0 +1,16 @@
+{
+  "listing": "/index.html",
+  "items": [
+    "/animations/formulesaddition.html",
+    "/animations/eulerspirale.html",
+    "/animations/rotation3d.html",
+    "/animations/fourier3d.html",
+    "/animations/deriveevariations.html",
+    "/animations/cubeidentite.html",
+    "/animations/tangentecotangente.html",
+    "/lycee/terminale/exemplecoursexponentielle.html",
+    "/lycee/terminale/exempledevoir.html",
+    "/superieur/exemplefourier.html",
+    "/articles/pourquoi0999egal1.html"
+  ]
+}

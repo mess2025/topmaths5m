@@ -1,6 +1,8 @@
 ---
-title: "(a + b)³ en volume"
-description: "Algèbre"
+title: "(a + b)³ : démonstration géométrique en volume"
+description: "Un cube découpé en 8 blocs pour voir que (a + b)³ = a³ + 3a²b + 3ab² + b³. L'identité remarquable du cube, en 3D."   # texte lu par Google (résultats de recherche)
+domaine: "Algèbre"   # petit mot affiché sous la vignette
+titrecourt: "(a + b)³ en volume"   # titre affiché sur les vignettes
 date: 2026-10-19
 image: ../extraits/extraitCubeIdentite.jpg
 toc: false
@@ -16,4 +18,4 @@ toc: false
 </div>
 ```
 
-[Texte d'accompagnement de l'animation : ce qu'elle montre, les formules, le lien avec le cours.]
+Un cube découpé en 8 blocs pour voir que (a + b)³ = a³ + 3a²b + 3ab² + b³. L'identité remarquable du cube, en 3D.
