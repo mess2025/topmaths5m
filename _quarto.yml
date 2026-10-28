@@ -57,6 +57,7 @@ website:
 format:
   html:
     theme: [darkly, assets/theme.scss]   # base sombre + nos couleurs (assets/theme.scss)
+    canonical-url: true                  # adresse officielle de chaque page (corrige « page en double » chez Google)
     html-math-method: katex              # formules LaTeX affichées rapidement
     toc: true                            # sommaire à droite sur les pages de cours
     toc-title: "Sommaire"
