@@ -1,4 +1,3 @@
-
 /* =========================================================
    2) ÉCRANS D'EXTRAITS : dans chaque « .ecran », les vidéos
       défilent l'une après l'autre avec un fondu enchaîné.
@@ -17,6 +16,13 @@ document.querySelectorAll('.ecran').forEach(ecran => {
   // Un petit point par extrait (s'il y a une zone prévue pour)
   if (points) videos.forEach(() => points.appendChild(document.createElement('i')));
   const pastilles = points ? [...points.children] : [];
+
+  // Un seul extrait (animation du jour) : il tourne en boucle, sans fondu
+  if (videos.length === 1 && !location.search.includes('capture')){
+    videos[0].classList.add('visible');
+    videos[0].play().catch(() => {});
+    return;
+  }
 
   // Mode capture d'écran (adresse terminée par « ?capture ») : image fixe à la place
   // de la vidéo, car les outils de capture ne savent pas photographier une vidéo.
