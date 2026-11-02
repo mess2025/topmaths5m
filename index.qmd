@@ -7,6 +7,7 @@ body-classes: accueil
 include-after-body:
   - text: |
       <script src="assets/vague.js"></script>
+      <script src="assets/roue.js"></script>
       <script src="assets/vitrine.js"></script>
 # Listes remplies automatiquement par Quarto (rien à modifier ici pour ajouter du contenu)
 listing:
@@ -35,86 +36,114 @@ listing:
 ---
 
 <!-- =====================================================
-     PAGE D'ACCUEIL (design de la maquette 13)
+     PAGE D'ACCUEIL (design de la maquette 16, 2 novembre 2026)
      Les textes peuvent être modifiés directement ici.
+     Le style est dans assets/theme.scss (section « PAGE D'ACCUEIL »).
      ===================================================== -->
 
 ```{=html}
 <div class="heros">
-  <div class="accueil-haut">
-    <div class="accroche">
-      <div class="bienvenue">Bienvenue sur Top Maths 5M</div>
-      <h1>Les maths, expliquées pas à pas</h1>
-      <p>Des cours clairs, des corrigés détaillés et des animations pour tous les élèves, même ceux qui pensent ne pas aimer les maths.</p>
-      <div class="boutons">
-        <a href="lycee/index.html" class="bouton plein">Commencer par un cours</a>
-        <a href="animations/index.html" class="bouton contour">Voir les animations</a>
+  <!-- Accroche centrée -->
+  <div class="accroche">
+    <h1>Apprendre les maths autrement…</h1>
+    <div class="boutons">
+      <a href="lycee/index.html" class="bouton plein">Commencer par un cours</a>
+      <a href="animations/index.html" class="bouton contour">Voir les animations</a>
+    </div>
+  </div>
+
+  <div class="rangee">
+    <!-- LA ROUE : les disques sont placés en cercle par assets/roue.js (en partant du haut, sens des aiguilles d'une montre).
+         data-c = couleur du disque (et de sa carte de niveau plus bas). -->
+    <nav class="roue" id="roue" aria-label="Rubriques du site">
+      <a href="lycee/seconde/index.html" class="disque" data-c="#3FD0A0"><span class="court"><span class="chiffre">2</span>de</span><span class="long">Seconde</span></a>
+      <a href="lycee/terminale/index.html" class="disque" data-c="#FF6F8E"><span class="court">Tle</span><span class="long">Terminale</span></a>
+      <a href="agregation/index.html" class="disque" data-c="#A585FF"><span class="court">Agr</span><span class="long">Agrégation</span></a>
+      <a href="animations/index.html" class="disque anim" data-c="#5FD4F4"><canvas id="minianim" width="124" height="60" aria-hidden="true"></canvas><span class="long">Animations</span></a>
+      <a href="articles/index.html" class="disque" data-c="#6E9BFF"><span class="court">✎</span><span class="long">Articles</span></a>
+      <a href="apropos.html" class="disque" data-c="#9FB3D1"><span class="court">i</span><span class="long">À propos</span></a>
+      <a href="superieur/index.html" class="disque" data-c="#F4C542"><span class="court">Sup</span><span class="long">Supérieur</span></a>
+      <a href="lycee/premiere/index.html" class="disque" data-c="#FF9F45"><span class="court"><span class="chiffre">1</span>re</span><span class="long">Première</span></a>
+      <a href="index.html" class="centre"><span class="haut">Top Maths</span><span class="bas">5M</span></a>
+    </nav>
+
+    <!-- L'« animation du jour » (grand écran) à gauche, puis 2 petits écrans à droite.
+         data-decalage = secondes d'attente avant de démarrer.
+         Pour ajouter un extrait dans un petit écran : copier une ligne <video …> et changer les noms. -->
+    <div class="bande">
+      <!-- ANIMATION DU JOUR : À CHANGER À LA MAIN (lien, poster, src, titre, domaine). -->
+      <div class="vitrine jour">
+        <div class="badge">Animation du jour</div>
+        <a href="animations/rotation3d.html" class="ecran" data-decalage="0">
+          <video muted playsinline loop preload="auto" poster="extraits/extraitRotation3D.jpg" src="extraits/extraitRotation3D.mp4" data-titre="Matrices de rotation" data-domaine="Algèbre linéaire"></video>
+        </a>
+        <div class="legende"><span class="titre">Matrices de rotation</span><span class="domaine">Algèbre linéaire</span></div>
       </div>
-
-      <div class="rangee">
-        <!-- Les 4 niveaux (du supérieur à la seconde) -->
-        <div class="choix">
-          <div class="intitule">Choisis ton niveau</div>
-          <div class="niveaux">
-            <a href="superieur/index.html" class="niveau"><div class="abrege">Sup</div><div class="nom">Supérieur et partiels</div></a>
-            <a href="lycee/terminale/index.html" class="niveau"><div class="abrege">Tle</div><div class="nom">Terminale</div></a>
-            <a href="lycee/premiere/index.html" class="niveau"><div class="abrege">1re</div><div class="nom">Première spécialité</div></a>
-            <a href="lycee/seconde/index.html" class="niveau"><div class="abrege">2de</div><div class="nom">Seconde</div></a>
-          </div>
+      <div class="vitrine">
+        <div class="ecran" data-decalage="0">
+          <video muted playsinline preload="auto"     poster="extraits/extraitEulerSpirale.jpg"      src="extraits/extraitEulerSpirale.mp4"      data-titre="Formule d'Euler en 3D" data-domaine="Complexes"></video>
+          <video muted playsinline preload="metadata" poster="extraits/extraitCubeIdentite.jpg"      src="extraits/extraitCubeIdentite.mp4"      data-titre="(a + b)³ en volume"    data-domaine="Algèbre"></video>
+          <video muted playsinline preload="metadata" poster="extraits/extraitDeriveeVariations.jpg" src="extraits/extraitDeriveeVariations.mp4" data-titre="Dérivée et variations" data-domaine="Analyse"></video>
         </div>
+        <div class="legende"><span class="titre">Formule d'Euler en 3D</span><span class="domaine">Complexes</span></div>
+      </div>
+      <div class="vitrine">
+        <div class="ecran" data-decalage="3">
+          <video muted playsinline preload="auto"     poster="extraits/extraitFourier3D.jpg"          src="extraits/extraitFourier3D.mp4"          data-titre="Séries de Fourier"      data-domaine="Analyse"></video>
+          <video muted playsinline preload="metadata" poster="extraits/extraitTangenteCotangente.jpg" src="extraits/extraitTangenteCotangente.mp4" data-titre="Tangente et cotangente" data-domaine="Trigonométrie"></video>
+        </div>
+        <div class="legende"><span class="titre">Séries de Fourier</span><span class="domaine">Analyse</span></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        <!-- Animations récentes : remplies automatiquement (dossier animations/) -->
-        <div class="recentes">
-          <div class="entete"><div class="intitule">Animations récentes</div><a href="animations/index.html" class="toutes">Tout voir →</a></div>
+<!-- ===================== NIVEAUX ===================== -->
+<section class="bloc">
+  <h2>Choisis ton niveau</h2>
+  <div class="niveaux">
+    <a href="lycee/seconde/index.html" class="niveau" style="--c:#3FD0A0"><div class="abrege"><span class="chiffre">2</span>de</div><div><div class="nom">Seconde</div><div class="detail">Cours, exercices corrigés, devoirs</div></div></a>
+    <a href="lycee/premiere/index.html" class="niveau" style="--c:#FF9F45"><div class="abrege"><span class="chiffre">1</span>re</div><div><div class="nom">Première spécialité</div><div class="detail">Cours, exercices corrigés, devoirs</div></div></a>
+    <a href="lycee/terminale/index.html" class="niveau" style="--c:#FF6F8E"><div class="abrege">Tle</div><div><div class="nom">Terminale</div><div class="detail">Cours, exercices corrigés, bac</div></div></a>
+    <a href="superieur/index.html" class="niveau" style="--c:#F4C542"><div class="abrege">Sup</div><div><div class="nom">Supérieur et partiels</div><div class="detail">Licence, prépa, sujets de partiels</div></div></a>
+    <a href="agregation/index.html" class="niveau large" style="--c:#A585FF"><div class="abrege">Agr</div><div><div class="nom">Agrégation</div><div class="detail">Leçons, développements et préparation à l'oral</div></div></a>
+  </div>
+</section>
+
+<!-- ===================== ANIMATIONS RÉCENTES (remplies automatiquement) ===================== -->
+<section class="bloc">
+  <h2>Animations récentes</h2>
 ```
 
 ::: {#recentes}
 :::
 
 ```{=html}
-        </div>
-      </div>
-    </div>
+  <a href="animations/index.html" class="toutes">Voir toutes les animations →</a>
+</section>
 
-    <!-- Vitrine : les extraits défilent l'un après l'autre, en fondu.
-         Pour ajouter un extrait : copier une ligne <video …> et changer les noms. -->
-    <div class="vitrine">
-      <div class="ecran">
-        <video muted playsinline preload="auto"     poster="extraits/extraitEulerSpirale.jpg"       src="extraits/extraitEulerSpirale.mp4"       data-titre="Formule d'Euler en 3D"  data-domaine="Complexes"></video>
-        <video muted playsinline preload="metadata" poster="extraits/extraitRotation3D.jpg"         src="extraits/extraitRotation3D.mp4"         data-titre="Matrices de rotation"   data-domaine="Algèbre linéaire"></video>
-        <video muted playsinline preload="metadata" poster="extraits/extraitFourier3D.jpg"          src="extraits/extraitFourier3D.mp4"          data-titre="Séries de Fourier"      data-domaine="Analyse"></video>
-        <video muted playsinline preload="metadata" poster="extraits/extraitCubeIdentite.jpg"       src="extraits/extraitCubeIdentite.mp4"       data-titre="(a + b)³ en volume"     data-domaine="Algèbre"></video>
-        <video muted playsinline preload="metadata" poster="extraits/extraitDeriveeVariations.jpg"  src="extraits/extraitDeriveeVariations.mp4"  data-titre="Dérivée et variations"  data-domaine="Analyse"></video>
-        <video muted playsinline preload="metadata" poster="extraits/extraitTangenteCotangente.jpg" src="extraits/extraitTangenteCotangente.mp4" data-titre="Tangente et cotangente" data-domaine="Trigonométrie"></video>
-      </div>
-      <div class="legende">
-        <span class="titre">Formule d'Euler en 3D</span>
-        <span class="domaine">Complexes</span>
-      </div>
-      <div class="points"></div>
-    </div>
-  </div>
-</div>
-
-<!-- Documents et article : remplis automatiquement -->
-<div class="duo">
-  <div class="carte documents">
-    <div class="intitule">Nouveaux documents</div>
+<!-- ===================== NOUVEAUTÉS (remplies automatiquement) ===================== -->
+<section class="bloc">
+  <h2>Nouveautés</h2>
+  <div class="duo">
+    <div class="carte documents" style="--c:#9FB3D1">
+      <h3>Nouveaux documents</h3>
 ```
 
 ::: {#documents}
 :::
 
 ```{=html}
-  </div>
-  <div class="carte article">
-    <div class="intitule">Dernier article</div>
+    </div>
+    <div class="carte article" style="--c:#6E9BFF">
+      <h3>Dernier article</h3>
 ```
 
 ::: {#dernierarticle}
 :::
 
 ```{=html}
+    </div>
   </div>
-</div>
+</section>
 ```

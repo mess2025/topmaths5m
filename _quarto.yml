@@ -29,7 +29,9 @@ website:
     site-name: "Top Maths 5M"
   twitter-card: true
   search: false              # pas de loupe de recherche (comme la maquette) ; mettre true pour l'activer
+  favicon: assets/logoTopMaths5M64.png   # petite icône de l'onglet (logo T + M)
   navbar:
+    logo: assets/logoTopMaths5M180.png   # logo T + M (anneau) à gauche du titre
     title: "Top Maths 5M"     # « 5M » est colorié en or par le script assets/commun.js
     right:                    # le menu, dans l'ordre
       - text: "Accueil"

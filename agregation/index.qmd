@@ -1,0 +1,8 @@
+---
+title: "Agrégation"
+description: "Leçons, développements et préparation à l'oral de l'agrégation de mathématiques."
+---
+
+<!-- Page provisoire : la rubrique Agrégation sera remplie plus tard. -->
+
+Cette rubrique est **en préparation** : leçons, développements et conseils pour l'oral arriveront bientôt.

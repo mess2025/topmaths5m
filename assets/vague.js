@@ -22,14 +22,14 @@
   const ctx = toile.getContext('2d');
 
   // --- Réglages (à ajuster à votre goût) ---
-  const PAS = 3.6;              // écart entre deux points voisins du maillage
+  const PAS = 4.6;              // écart entre deux points voisins (plus grand = triangles plus grands, moins de points)
   const DEBUT = 30;             // distance de la première rangée (devant, hors de l'écran)
   const PROFONDEUR = 230;       // jusqu'où la nappe s'étend vers l'horizon
   const HAUTEUR_CAMERA = 23;    // hauteur de l'œil au-dessus de la nappe (vue d'en haut)
   const INCLINAISON = 0.30;     // regard légèrement vers le bas (en radians)
   const HORIZON = 0.05;         // le bord lointain de la nappe dépasse le haut de l'écran de 5 % de la hauteur
   const MISE_AU_POINT = 105;    // distance à laquelle la nappe est nette
-  const VITESSE = 0.0016;       // vitesse de l'ondulation (plus petit = plus lent)
+  const VITESSE = 0.0018;       // vitesse de l'ondulation (plus petit = plus lent)
   const TEINTE = '226, 236, 255';   // blanc légèrement bleuté (rouge, vert, bleu)
   const OPACITE_POINT = 0.40;   // opacité des points nets
   const OPACITE_TRAIT = 0.18;   // opacité des traits nets
@@ -69,9 +69,11 @@
 
   // Relief de la nappe
   function altitude(x, z){
-    // presque plate : une seule longue ondulation, très douce
-    return 3.2 * Math.sin(0.030 * x + 0.022 * z + t)
-         + 1.0 * Math.sin(0.045 * x - 0.018 * z + 0.6 * t + 1.3);
+    // longues ondulations douces, amplitude +25 % par rapport à la 14,
+    // plus une troisième houle lente qui rend la mer « vivante » sans à-coups
+    return 4.0 * Math.sin(0.030 * x + 0.022 * z + t)
+         + 1.25 * Math.sin(0.045 * x - 0.018 * z + 0.6 * t + 1.3)
+         + 0.7 * Math.sin(0.016 * x + 0.040 * z - 0.45 * t + 2.1);
   }
 
   // Projection en perspective, caméra au-dessus de la nappe qui regarde vers l'avant et un peu vers le bas
@@ -108,7 +110,7 @@
 
     // Flou selon l'écart à la distance de mise au point (0 = net)
     // (le flou monte plus vite au premier plan qu'au loin, comme en photo)
-    const flou = d => Math.min(1, d < MISE_AU_POINT ? (MISE_AU_POINT - d) / (MISE_AU_POINT * 0.30) : (d - MISE_AU_POINT) / (MISE_AU_POINT * 0.60));
+    const flou = d => Math.min(1, d < MISE_AU_POINT ? (MISE_AU_POINT - d) / (MISE_AU_POINT * 0.22) : (d - MISE_AU_POINT) / (MISE_AU_POINT * 0.60));
     const visible = p => p[0] > -marge && p[0] < largeur + marge && p[1] > -marge && p[1] < hauteur + marge;
 
     // Traits, regroupés par niveau d'opacité pour aller vite
@@ -141,7 +143,9 @@
       for (const p of grille[j].values()){
         if (!visible(p)) continue;
         const f = flou(p[2]);
-        const rayon = TAILLE_POINT * focale / p[2] * (1 + 2.2 * f) + 0.45;
+        // premier plan (plus proche que la mise au point) : points plus gros, effet de perspective
+        const devant = p[2] < MISE_AU_POINT ? 3.6 : 2.2;
+        const rayon = TAILLE_POINT * focale / p[2] * (1 + devant * f) + 0.45;
         const brume = Math.max(0, 1 - Math.max(0, p[2] - 170) / 60);   // les points très lointains se fondent dans le bleu
         ctx.globalAlpha = OPACITE_POINT * brume / (1 + 5 * f * f);
         const tache = taches[Math.round(f * (NIVEAUX_FLOU - 1))];
