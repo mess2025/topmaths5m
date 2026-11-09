@@ -62,37 +62,60 @@
   function doux(x){ x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); }
 
   // --- Réglages de l'eau (à ajuster à votre goût) ---
-  const LUMIERE = 0.045;        // clarté des crêtes (plus grand = rides plus visibles)
-  const ECLATS = 0.11;          // force des petits reflets (0 = aucun reflet)
-  const OMBRE = 0.30;           // profondeur des creux sombres
+  const LUMIERE = 0.075;        // clarté des crêtes (plus grand = rides plus visibles)
+  const ECLATS = 0.42;          // force des reflets de lune (0 = aucun reflet)
+  const LUNE = 1.3;             // surcroît de reflets dans le sillage de la lune (0 = pareil partout)
+  const HORIZON = 0.4;          // force du filet de lumière sur l'horizon (0 = aucun)
+  const OMBRE = 0.34;           // profondeur des creux sombres
   const VITESSE = 1;            // vitesse du mouvement (0.5 = deux fois plus lent)
+  const HALO = 22;              // hauteur, en pixels, de la lueur au-dessus de l'horizon
 
   let tirage = 0;
   function ocean(L, H){
     const MER = Math.round(Math.min(200, H * 0.26));            // hauteur de la bande de mer, en pixels
-    mer.style.top = (H - MER) + 'px'; mer.style.height = MER + 'px';
+    mer.style.top = (H - MER - HALO) + 'px'; mer.style.height = (MER + HALO) + 'px';
     const fin = fixe ? 1 : 0.75;                                // finesse du calcul (1 = un point par pixel)
-    const w = Math.ceil(L * fin), h = Math.ceil(MER * fin);
+    const w = Math.ceil(L * fin), h = Math.ceil((MER + HALO) * fin);
     mer.width = w; mer.height = h;
     const ctx = mer.getContext('2d'), image = ctx.createImageData(w, h), px = image.data;
+    // La lune, hors champ, éclaire surtout une colonne d'eau (entre la roue et les animations)
+    const x0 = L * 0.445;
+    const centre = new Float32Array(w);                         // filet d'horizon : plus clair au milieu, il s'efface vers les bords
+    for (let i = 0; i < w; i++){ const q = (i / fin - x0) / (L * 0.34); centre[i] = 0.3 + 0.7 * Math.exp(-q * q); }
     function peindre(t){
       let k = 0;
       for (let j = 0; j < h; j++){
-        const yc = (j + 0.5) / fin, d = yc / MER;               // d : 0 à l'horizon, 1 tout en bas
+        const yc = (j + 0.5) / fin - HALO;
+        if (yc < 0){                                            // au-dessus de l'horizon : une lueur très légère, le ciel reste visible
+          const a = 255 * HORIZON * 0.2 * Math.exp(yc / 6);
+          for (let i = 0; i < w; i++){ px[k++] = 150; px[k++] = 195; px[k++] = 245; px[k++] = a * centre[i]; }
+          continue;
+        }
+        const d = yc / MER;                                     // d : 0 à l'horizon, 1 tout en bas
         const z = 1 / (d * 0.72 + 0.035);                       // éloignement : grand près de l'horizon
-        const dd = doux(d), brume = 1 - Math.min(1, yc / 12);
+        const dd = doux(d);
         // Couleur de fond de l'eau : bleue vers l'horizon, bleu nuit de la page (#0A1A33) tout en bas
-        const r0 = 10 + 2 * brume, g0 = 40 - 14 * dd + 5 * brume, b0 = 82 - 31 * dd + 9 * brume;
+        const r0 = 10, g0 = 41 - 15 * dd, b0 = 88 - 37 * dd;
         // Force des rides : nulle sur l'horizon, franche au milieu, éteinte en bas (l'eau se fond dans la page)
-        const force = doux(d / 0.22) * (1 - doux((d - 0.5) / 0.5));
-        const opacite = Math.min(1, yc / 3) * 255, zz = z * 7.5, kx = z * 3.2 / 260, loin = 0.35 + 0.65 * (1 - d);
+        const bas = 1 - doux((d - 0.5) / 0.5);
+        const force = doux(d / 0.22) * bas, forceE = doux(d / 0.13) * (1 - doux((d - 0.28) / 0.6));
+        const zz = z * 7.5, kx = z * 3.2 / 260, loin = 0.25 + 0.75 * (1 - d);
+        const filet = HORIZON * 0.6 * Math.exp(-yc / 1.5);      // le filet de lumière posé sur l'horizon
+        const large = L * (0.028 + 0.12 * d);                   // le sillage de la lune s'élargit en venant vers nous
         for (let i = 0; i < w; i++){
-          const wx = (i / fin - L / 2) * kx;
+          const xc = i / fin, wx = (xc - L / 2) * kx;
           const s = 0.62 * bruit(wx + t * 0.05, zz - t * 0.22) + 0.38 * bruit(wx * 2.7 - t * 0.04 + 31.7, zz * 2.7 + t * 0.35 + 11.3);
-          let g = (s - 0.36) / 0.4; g = g < 0 ? 0 : g > 1 ? 1 : g; g *= g;           // petits éclats sur les crêtes
-          const lumiere = force * (LUMIERE * (s > 0 ? s : 0) + ECLATS * g * loin);
+          const q = (xc - x0) / large, lune = Math.exp(-q * q);
+          const seuil = 0.4 - 0.2 * lune;
+          let g = 0;
+          if (s > seuil - 0.4){                                 // reflets : fins éclats sur les crêtes tournées vers la lune
+            g = (s + 0.45 * bruit(wx * 4.6 + t * 0.06 + 5.2, zz * 12 - t * 0.5 + 71.9) - seuil) / 0.5;
+            g = g < 0 ? 0 : g > 1 ? 1 : g; g *= g * g;          // cœur vif, bords fondus
+          }
+          const lumiere = force * (LUMIERE * (s > 0 ? s : 0) + 0.035 * lune) + filet * centre[i];
+          const eclat = forceE * ECLATS * g * loin * (1 + LUNE * lune);
           const ombre = 1 - OMBRE * force * (s < 0 ? -s : 0);                        // rides sombres dans les creux
-          px[k++] = r0 * ombre + 160 * lumiere; px[k++] = g0 * ombre + 200 * lumiere; px[k++] = b0 * ombre + 240 * lumiere; px[k++] = opacite;
+          px[k++] = r0 * ombre + 150 * lumiere + 215 * eclat; px[k++] = g0 * ombre + 195 * lumiere + 232 * eclat; px[k++] = b0 * ombre + 245 * lumiere + 255 * eclat; px[k++] = 255;
         }
       }
       ctx.putImageData(image, 0, 0);
