@@ -6,8 +6,8 @@ toc: false
 body-classes: accueil
 include-after-body:
   - text: |
-      <script src="assets/paysage.js?v=2"></script>
-      <script src="assets/roue.js?v=2"></script>
+      <script src="assets/paysage.js?v=3"></script>
+      <script src="assets/roue.js?v=3"></script>
       <script src="assets/vitrine.js"></script>
 # Listes remplies automatiquement par Quarto (rien à modifier ici pour ajouter du contenu)
 listing:

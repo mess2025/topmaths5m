@@ -12,7 +12,7 @@ project:
     - "**/*.qmd"
   resources:                  # dossiers copiés tels quels dans le site
     - extraits/
-    - "assets/*.js"           # scripts de l'accueil (appelés avec « ?v=2 » pour forcer leur rechargement)
+    - "assets/*.js"           # scripts de l'accueil (appelés avec « ?v=3 » pour forcer leur rechargement)
     - documents/
     - videos/                 # animations complètes (fichiers .mp4)
     - CNAME                   # indique à GitHub le nom de domaine topmaths5m.fr
