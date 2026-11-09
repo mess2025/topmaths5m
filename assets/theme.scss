@@ -101,6 +101,8 @@ $surbouton: #0A2A4D;       // texte sur le bouton bleu ciel
 // Fond « nuit douce » (créé par assets/paysage.js, maquette 19 n° 4), pleine largeur, derrière le menu
 #paysage{ position: absolute; top: 0; left: 0; width: 100%; z-index: 0; pointer-events: none;
   background: linear-gradient(#02040A 0%, #040B1C 24%, #072350 62%, #0C3769 100%); }
+// La toile de l'océan (créée par assets/paysage.js), en bas du ciel ; sa position est réglée par le script
+#mer{ position: absolute; left: 0; width: 100%; z-index: 0; pointer-events: none; }
 @keyframes scintiller{ 0%,100%{ opacity: var(--o); } 50%{ opacity: calc(var(--o) * .35); } }
 #paysage .scintille{ animation: scintiller var(--d) ease-in-out infinite; }
 #quarto-header{ z-index: 10; }

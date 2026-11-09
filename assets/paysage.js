@@ -1,20 +1,26 @@
 /* =========================================================
-   FOND DE L'ACCUEIL : « NUIT DOUCE » (maquette 19, n° 4)
-   Ciel noir en haut, bleu vers les montagnes, étoiles fines,
-   montagnes basses et lissées, forêt arrondie au premier plan.
-   Remplace la vague de points (assets/vague.js, conservé mais plus chargé).
+   FOND DE L'ACCUEIL : LE CIEL ÉTOILÉ ET L'OCÉAN, LA NUIT
+   (maquette 21, n° 1 « eau discrète », 9 novembre 2026)
+   - Le ciel : dégradé noir → bleu (dans assets/theme.scss) et étoiles fines.
+   - L'océan : une bande d'eau sombre et calme en bas du bloc d'accueil.
+     Sa surface est calculée point par point (rides vues en perspective),
+     puis redessinée lentement : l'eau bouge tout doucement.
+   Version précédente (montagnes et forêt) : repère git « avant-ocean ».
    ========================================================= */
 (function(){
-  // Le paysage n'existe que sur la page d'accueil (bloc « .heros »)
+  // Ce fond n'existe que sur la page d'accueil (bloc « .heros »)
   const heros = document.querySelector('.heros');
   if (!heros) return;
 
   const NS = 'http://www.w3.org/2000/svg';
-  const FOND = '#0A1A33';                         // couleur du reste de la page : le premier plan s'y fond
-  const fixe = location.search.includes('capture');   // capture d'écran : pas de scintillement
+  const fixe = location.search.includes('capture');   // capture d'écran : image immobile
+  const calme = fixe || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Le dessin est posé tout en haut de la page, derrière le menu,
-  // et descend jusqu'au bas du bloc d'accueil
+  // Le ciel (dessin SVG) et la mer (toile) sont posés tout en haut de la page, derrière le menu
+  const mer = document.createElement('canvas');
+  mer.id = 'mer';
+  mer.setAttribute('aria-hidden', 'true');
+  document.body.prepend(mer);
   const svg = document.createElementNS(NS, 'svg');
   svg.id = 'paysage';
   svg.setAttribute('aria-hidden', 'true');
@@ -25,69 +31,82 @@
     let t = Math.imul(graine ^ graine >>> 15, 1 | graine); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
     return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 
-  function el(nom, attributs){ const e = document.createElementNS(NS, nom);
-    for (const k in attributs) e.setAttribute(k, attributs[k]); svg.appendChild(e); return e; }
-
-  // Étoiles fines, plus nombreuses en haut, absentes près du paysage
+  // ---------- Le ciel : étoiles fines, plus nombreuses en haut, absentes près de l'horizon ----------
   function etoiles(L, H){
     const r = hasard(7);
     for (let i = 0; i < 130; i++){
       const x = r() * L, y = Math.pow(r(), 1.6) * H * 0.62;
       const rayon = 0.45 + r() * r() * 1.1, o = (0.25 + r() * 0.6) * (1 - y / (H * 0.7));
-      const c = el('circle', {cx:x.toFixed(1), cy:y.toFixed(1), r:rayon.toFixed(2), fill:'#EAF4FF', opacity:o.toFixed(2)});
-      if (!fixe && i % 6 === 0){ c.classList.add('scintille'); c.style.setProperty('--o', o.toFixed(2)); c.style.setProperty('--d', (3 + r() * 4).toFixed(1) + 's'); }
+      const c = document.createElementNS(NS, 'circle');
+      c.setAttribute('cx', x.toFixed(1)); c.setAttribute('cy', y.toFixed(1)); c.setAttribute('r', rayon.toFixed(2));
+      c.setAttribute('fill', '#EAF4FF'); c.setAttribute('opacity', o.toFixed(2));
+      if (!calme && i % 6 === 0){ c.classList.add('scintille'); c.style.setProperty('--o', o.toFixed(2)); c.style.setProperty('--d', (3 + r() * 4).toFixed(1) + 's'); }
+      svg.appendChild(c);
     }
   }
 
-  // Dégradé vertical : couleur franche à la crête, brume vers le pied
-  let numero = 0;
-  function brume(couleur, haut, bas){
-    const id = 'brume' + (numero++);
-    const d = el('linearGradient', {id:id, x1:0, y1:0, x2:0, y2:1});
-    const a = document.createElementNS(NS, 'stop'); a.setAttribute('offset', '0'); a.setAttribute('stop-color', couleur); a.setAttribute('stop-opacity', haut); d.appendChild(a);
-    const b = document.createElementNS(NS, 'stop'); b.setAttribute('offset', '1'); b.setAttribute('stop-color', couleur); b.setAttribute('stop-opacity', bas); d.appendChild(b);
-    return 'url(#' + id + ')';
+  // ---------- L'océan ----------
+  // Bruit lisse : une surface vallonnée au hasard, entre -1 et 1
+  const VALEURS = new Float32Array(256), PERM = new Uint8Array(512);
+  (function(){ const r = hasard(1234), p = [];
+    for (let i = 0; i < 256; i++){ VALEURS[i] = r() * 2 - 1; p.push(i); }
+    for (let i = 255; i > 0; i--){ const j = Math.floor(r() * (i + 1)), k = p[i]; p[i] = p[j]; p[j] = k; }
+    for (let i = 0; i < 512; i++) PERM[i] = p[i & 255]; })();
+  function bruit(x, y){
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    const a = PERM[xi & 255], b = PERM[(xi + 1) & 255], Y = yi & 255;
+    const h00 = VALEURS[PERM[a + Y]], h10 = VALEURS[PERM[b + Y]], h01 = VALEURS[PERM[a + Y + 1]], h11 = VALEURS[PERM[b + Y + 1]];
+    return h00 + (h10 - h00) * u + (h01 - h00) * v + (h00 - h10 - h01 + h11) * u * v;
   }
+  function doux(x){ x = x < 0 ? 0 : x > 1 ? 1 : x; return x * x * (3 - 2 * x); }
 
-  // Montagnes basses et lissées, avec un relief très léger
-  function montagne(L, H, niveau, amplitude, graine, couleur, haut, bas){
-    const r = hasard(graine), ondes = [];
-    for (let k = 1; k <= 3; k++) ondes.push({f:(0.5 + r() * 0.8) * k * 1.15 / 1440, p:r() * 6.283, a:1 / Math.pow(k, 1.6)});
-    let crete = '';
-    for (let x = -80; x <= L + 80; x += 8){
-      let s = 0; for (const o of ondes) s += o.a * Math.sin(x * o.f * 6.283 + o.p);
-      crete += (crete ? ' L' : 'M') + x + ' ' + (H - niveau - amplitude * s * 0.7).toFixed(1);
-    }
-    const forme = crete + ' L' + (L + 80) + ' ' + H + ' L-80 ' + H + ' Z';
-    const id = 'masque' + (numero++);
-    const masque = el('clipPath', {id:id}); const p = document.createElementNS(NS, 'path'); p.setAttribute('d', forme); masque.appendChild(p);
-    el('path', {d:forme, fill:brume(couleur, haut, bas)});
-    // Versant à l'ombre : la même forme, décalée, visible seulement à l'intérieur de la montagne
-    const g = el('g', {'clip-path':'url(#' + id + ')'});
-    const o1 = document.createElementNS(NS, 'path'); o1.setAttribute('d', forme); o1.setAttribute('fill', '#04142E'); o1.setAttribute('opacity', '.26'); o1.setAttribute('transform', 'translate(54 30)'); g.appendChild(o1);
-    const o2 = document.createElementNS(NS, 'path'); o2.setAttribute('d', forme); o2.setAttribute('fill', '#04142E'); o2.setAttribute('opacity', '.16'); o2.setAttribute('transform', 'translate(-120 74)'); g.appendChild(o2);
-    // Fil de lumière sur la crête
-    el('path', {d:crete, fill:'none', stroke:'#A9CDEF', 'stroke-width':1.1, opacity:.20});
-  }
+  // --- Réglages de l'eau (à ajuster à votre goût) ---
+  const LUMIERE = 0.045;        // clarté des crêtes (plus grand = rides plus visibles)
+  const ECLATS = 0.11;          // force des petits reflets (0 = aucun reflet)
+  const OMBRE = 0.30;           // profondeur des creux sombres
+  const VITESSE = 1;            // vitesse du mouvement (0.5 = deux fois plus lent)
 
-  // Forêt suggérée : des houppiers ronds qui se fondent, sans pointes ; quelques arbres à peine plus hauts
-  function feuillage(L, H, pied, rmin, rmax, graine, remplissage){
-    const r = hasard(graine), p1 = r() * 6.283;
-    let prochain = 120 + r() * 200;
-    for (let x = -30; x < L + 30; ){
-      const rayon = rmin + (rmax - rmin) * r();
-      const y = H - pied - rayon * 0.35 - 5 * Math.sin(x / 260 + p1);
-      el('ellipse', {cx:x.toFixed(1), cy:y.toFixed(1), rx:(rayon * 1.25).toFixed(1), ry:rayon.toFixed(1), fill:remplissage});
-      if (x > prochain){                           // de loin en loin, un arbre un peu plus haut, tout en rondeur
-        el('ellipse', {cx:(x + rayon).toFixed(1), cy:(y - rayon * 0.55).toFixed(1), rx:(rayon * 0.9).toFixed(1), ry:(rayon * 1.0).toFixed(1), fill:remplissage});
-        prochain = x + 230 + r() * 330;
+  let tirage = 0;
+  function ocean(L, H){
+    const MER = Math.round(Math.min(200, H * 0.26));            // hauteur de la bande de mer, en pixels
+    mer.style.top = (H - MER) + 'px'; mer.style.height = MER + 'px';
+    const fin = fixe ? 1 : 0.75;                                // finesse du calcul (1 = un point par pixel)
+    const w = Math.ceil(L * fin), h = Math.ceil(MER * fin);
+    mer.width = w; mer.height = h;
+    const ctx = mer.getContext('2d'), image = ctx.createImageData(w, h), px = image.data;
+    function peindre(t){
+      let k = 0;
+      for (let j = 0; j < h; j++){
+        const yc = (j + 0.5) / fin, d = yc / MER;               // d : 0 à l'horizon, 1 tout en bas
+        const z = 1 / (d * 0.72 + 0.035);                       // éloignement : grand près de l'horizon
+        const dd = doux(d), brume = 1 - Math.min(1, yc / 12);
+        // Couleur de fond de l'eau : bleue vers l'horizon, bleu nuit de la page (#0A1A33) tout en bas
+        const r0 = 10 + 2 * brume, g0 = 40 - 14 * dd + 5 * brume, b0 = 82 - 31 * dd + 9 * brume;
+        // Force des rides : nulle sur l'horizon, franche au milieu, éteinte en bas (l'eau se fond dans la page)
+        const force = doux(d / 0.22) * (1 - doux((d - 0.5) / 0.5));
+        const opacite = Math.min(1, yc / 3) * 255, zz = z * 7.5, kx = z * 3.2 / 260, loin = 0.35 + 0.65 * (1 - d);
+        for (let i = 0; i < w; i++){
+          const wx = (i / fin - L / 2) * kx;
+          const s = 0.62 * bruit(wx + t * 0.05, zz - t * 0.22) + 0.38 * bruit(wx * 2.7 - t * 0.04 + 31.7, zz * 2.7 + t * 0.35 + 11.3);
+          let g = (s - 0.36) / 0.4; g = g < 0 ? 0 : g > 1 ? 1 : g; g *= g;           // petits éclats sur les crêtes
+          const lumiere = force * (LUMIERE * (s > 0 ? s : 0) + ECLATS * g * loin);
+          const ombre = 1 - OMBRE * force * (s < 0 ? -s : 0);                        // rides sombres dans les creux
+          px[k++] = r0 * ombre + 160 * lumiere; px[k++] = g0 * ombre + 200 * lumiere; px[k++] = b0 * ombre + 240 * lumiere; px[k++] = opacite;
+        }
       }
-      x += rayon * (1.25 + r() * 0.7);
+      ctx.putImageData(image, 0, 0);
     }
-    el('rect', {x:0, y:H - pied - 2, width:L, height:pied + 2, fill:remplissage});
+    const moi = ++tirage;                                       // si la fenêtre change de taille, l'ancienne boucle s'arrête
+    if (calme){ peindre(7); return; }
+    (function boucle(){
+      if (moi !== tirage) return;
+      if (window.scrollY < H) peindre(performance.now() / 1000 * VITESSE);   // rien à calculer quand la mer n'est plus à l'écran
+      setTimeout(function(){ requestAnimationFrame(boucle); }, 70);
+    })();
   }
 
-  // Dessine le paysage, seulement si la taille a vraiment changé
+  // Dessine le fond, seulement si la taille a vraiment changé
   let largeur = 0, hauteur = 0;
   function dessiner(){
     const H = Math.round(heros.getBoundingClientRect().bottom + window.scrollY);
@@ -95,13 +114,10 @@
     const L = svg.clientWidth;
     if (L === largeur && H === hauteur) return;
     largeur = L; hauteur = H;
-    svg.innerHTML = ''; numero = 0;
+    svg.innerHTML = '';
     svg.setAttribute('viewBox', '0 0 ' + L + ' ' + H);
     etoiles(L, H);
-    montagne(L, H, 150, 78, 11, '#3B74AE', .46, .14);
-    montagne(L, H, 96, 52, 29, '#17467C', .90, .55);
-    feuillage(L, H, 34, 13, 22, 8, '#0D2445');
-    feuillage(L, H, 18, 15, 26, 3, FOND);
+    ocean(L, H);
   }
 
   dessiner();

@@ -38,10 +38,10 @@
   function tourner(temps){
     if (debut === null) debut = temps;
     const x = Math.min(1, (temps - debut) / DUREE);
-    placer(-Math.PI / 2 * (1 - lisse(x)));
+    placer(-Math.PI / 4 * (1 - lisse(x)));   // un huitième de tour (un cran), plus discret qu'un quart
     if (x < 1) requestAnimationFrame(tourner);
   }
-  placer(-Math.PI / 2);
+  placer(-Math.PI / 4);
   setTimeout(() => requestAnimationFrame(tourner), 400);
 })();
 
